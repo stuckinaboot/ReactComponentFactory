@@ -6,6 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# Locks
+yarn.lock
+package-lock.json
+
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
