@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ColorButtonProps } from "../typings";
 import { Button, Box, Typography } from "@material-ui/core";
-import Foo from "./foo";
 
 export default function ColorButton(
   props: ColorButtonProps
@@ -23,7 +22,6 @@ export default function ColorButton(
         ...props.style,
       }}
     >
-      <Foo />
       <Box
         style={{
           paddingLeft: props.buttonPaddingHorizontal
