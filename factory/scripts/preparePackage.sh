@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-NPM_DIST_NAME="npm_base"
-
 DEV_DIR=$1
 COMPONENT_DEV_DIR="src/components/$DEV_DIR"
+NPM_DIST_DIR="factory/boilerplate/npm_base"
 
 # Check if a component for $DEV_DIR exists
 if [ -d $COMPONENT_DEV_DIR ] 
@@ -25,8 +24,8 @@ then
 else
     echo "Directory $DEV_DIR does not exist, creating directory $DEV_DIR"
     mkdir $DEV_DIR
-    echo "Copying base npm package at $NPM_DIST_NAME into $DEV_DIR"
-    cp -r $NPM_DIST_NAME/ $DEV_DIR/
+    echo "Copying base npm package at $NPM_DIST_DIR into $DEV_DIR"
+    cp -r $NPM_DIST_DIR/ $DEV_DIR/
 fi
 
 echo "Clearing existing $DEV_DIR/src"
