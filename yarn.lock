@@ -7462,9 +7462,9 @@ ms@^2.1.1:
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
 mui-color-button@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/mui-color-button/-/mui-color-button-1.0.3.tgz#d26e742589c7c6ee57706e2da9365a4a41425151"
-  integrity sha512-kUxGWOxTuRU77h/E//e3bpI4dbeXA5H/Y+eeHgyxwxOvyc5rml9mLIqlo42T7RfHaszkOTjRtISG/SOkY3vrnQ==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/mui-color-button/-/mui-color-button-1.0.4.tgz#5d739cc50e319bb11bddd6b05aafaf29414f7706"
+  integrity sha512-sF24DQs5A/Ka1OXt8DNV4LytqQCUPH17rs1HNqUypYs6qNlyigafSDZi/L0E6IXbqdW0yIMpkGpmzHHk0/ryVQ==
   dependencies:
     "@material-ui/core" "^4.11.2"
 
