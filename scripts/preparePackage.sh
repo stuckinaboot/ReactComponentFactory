@@ -1,8 +1,24 @@
 #!/usr/bin/env bash
 
-NPM_DIST_NAME="npm_dist"
+NPM_DIST_NAME="npm_base"
 
 DEV_DIR=$1
+COMPONENT_DEV_DIR="src/components/$DEV_DIR"
+
+# Check if a component for $DEV_DIR exists
+if [ -d $COMPONENT_DEV_DIR ] 
+then
+    echo "Component $COMPONENT_DEV_DIR exists." 
+else
+    echo "Component $COMPONENT_DEV_DIR does not exist. Nothing more can be done." 
+    exit 1
+fi
+
+if [ ! -f $COMPONENT_DEV_DIR/package.json ]; then
+    echo "Component package.json not found. Add a package.json and continue"
+    exit 1
+fi
+
 if [ -d $DEV_DIR ] 
 then
     echo "Directory $DEV_DIR exists." 
@@ -10,27 +26,18 @@ else
     echo "Directory $DEV_DIR does not exist, creating directory $DEV_DIR"
     mkdir $DEV_DIR
     echo "Copying base npm package at $NPM_DIST_NAME into $DEV_DIR"
-    # rT copies recursively and includes hidden files
-    # https://superuser.com/questions/61611/how-to-copy-with-cp-to-include-hidden-files-and-hidden-directories-and-their-con
-    cp -rT $NPM_DIST_NAME/* $DEV_DIR/
+    cp -r $NPM_DIST_NAME/ $DEV_DIR/
 fi
-cd $DEV_DIR
 
 echo "Clearing existing $DEV_DIR/src"
 rm -rf $DEV_DIR/src/*
 
-echo "Copying src/$DEV_DIR to $DEV_DIR"
-cp -r src/$DEV_DIR/* $DEV_DIR/src
+echo "Copying src/components/$DEV_DIR to $DEV_DIR/src"
+cp -r $COMPONENT_DEV_DIR/ $DEV_DIR/src/
 
-# echo "Copying types to $NPM_DIST_NAME"
-# cp -r src/typings npm_dist/src
+echo "Moving src/components/$DEV_DIR/package.json to $DEV_DIR"
+cd $DEV_DIR/src
+mv package.json ..
 
 echo "Successfully copied files to $DEV_DIR/src"
-
-cd $DEV_DIR
-
-echo "Preparing to build from $DEV_DIR"
-yarn build
-
-echo "Built npm package"
-echo "Now go edit $DEV_DIR/package.json and then run npm publish when you're ready"
+echo "Next steps: Edit $DEV_DIR/package.json, in $DEV_DIR run yarn and yarn build, and finally npm publish when you're ready"

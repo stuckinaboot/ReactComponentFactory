@@ -1,5 +1,5 @@
 import "./App.css";
-import ColorButton from "./components";
+import ColorButton from "./components/colorButton";
 import CB from "mui-color-button";
 
 function App() {

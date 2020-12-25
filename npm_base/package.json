@@ -1,10 +1,10 @@
 {
-  "name": "mui-color-button",
-  "version": "1.0.4",
-  "description": "Customizable React material-ui color button",
-  "author": "stuckinaboot",
-  "license": "MIT",
-  "repository": "stuckinaboot/ColorButton",
+  "name": "base",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "",
+  "repository": "",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8",
@@ -13,9 +13,6 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.11.2"
   },
   "peerDependencies": {
     "react": ">= 16.8.0 < 2",
