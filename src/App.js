@@ -1,11 +1,14 @@
 import "./App.css";
-import ColorButton from "./components/colorButton";
-import CB from "mui-color-button";
+import ColorButton from "./components/MuiColorButton";
 
 function App() {
   return (
     <div className="App">
-      <CB label={"fudge"} backgroundColor={"blue"} textColor={"white"} />
+      <ColorButton
+        label={"Woohoo!"}
+        textColor={"white"}
+        backgroundColor={"red"}
+      />
     </div>
   );
 }

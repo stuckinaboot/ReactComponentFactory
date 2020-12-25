@@ -15,5 +15,5 @@ fi
 
 echo "Component $COMPONENT_DEV_DIR does not exist"
 mkdir $COMPONENT_DEV_DIR
-cp -r PREPARE_DIR/ $COMPONENT_DEV_DIR
+cp -r $PREPARE_DIR/ $COMPONENT_DEV_DIR
 echo "Created $COMPONENT_DEV_DIR. Now get building!"
