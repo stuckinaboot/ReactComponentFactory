@@ -1,0 +1,5 @@
+/**
+ * Typings
+ */
+
+export type ComponentProps = {};
