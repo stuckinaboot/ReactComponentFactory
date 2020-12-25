@@ -1,6 +1,23 @@
 import * as React from "react";
-import { ComponentProps } from "./typings";
 import { Button, Box, Typography } from "@material-ui/core";
+
+type CoreProps = {
+  label: string | React.ReactNode;
+  textColor: string;
+  backgroundColor: string;
+  fontSize?: number;
+  buttonPadding?: number;
+  buttonPaddingHorizontal?: number;
+  borderRadius?: number;
+  isBold?: boolean;
+  onClick?: (event: React.MouseEvent) => any;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
+};
+
+type HoverProps = { onHoverProps?: CoreProps };
+
+export type ComponentProps = CoreProps & HoverProps;
 
 export default function ColorButton(props: ComponentProps): React.ReactElement {
   // There is a known hover bug where hover state stays true

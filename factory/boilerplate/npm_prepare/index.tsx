@@ -1,6 +1,7 @@
 import * as React from "react";
-import { ComponentProps } from "./typings";
 
-export default function MyComponent(props: ComponentProps): React.ReactElement {
+type Props = {};
+
+export default function MyComponent(props: Props): React.ReactElement {
   return <></>;
 }

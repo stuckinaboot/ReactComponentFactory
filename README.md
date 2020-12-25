@@ -12,4 +12,6 @@ Rapidly create, distribute, and iterate on React components
 4. Edit `README.md` to reflect your component
 5. `yarn npm-prepare some_name` to prepare the component for distribution
 6. `cd some_name`
-7. Publish module to NPM: `npm publish`
+7. `yarn` to install node modules
+8. `yarn build`
+9. Publish module to NPM: `npm publish`
