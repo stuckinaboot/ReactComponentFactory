@@ -2,21 +2,35 @@
 
 NPM_DIST_NAME="npm_dist"
 
-echo "Clearing existing $NPM_DIST_NAME/src"
-rm -rf $NPM_DIST_NAME/src/*
+DEV_DIR=$1
+if [ -d $DEV_DIR ] 
+then
+    echo "Directory $DEV_DIR exists." 
+else
+    echo "Directory $DEV_DIR does not exist, creating directory $DEV_DIR"
+    mkdir $DEV_DIR
+    echo "Copying base npm package at $NPM_DIST_NAME into $DEV_DIR"
+    # rT copies recursively and includes hidden files
+    # https://superuser.com/questions/61611/how-to-copy-with-cp-to-include-hidden-files-and-hidden-directories-and-their-con
+    cp -rT $NPM_DIST_NAME/* $DEV_DIR/
+fi
+cd $DEV_DIR
 
-echo "Copying components to $NPM_DIST_NAME"
-cp -r src/components npm_dist/src
+echo "Clearing existing $DEV_DIR/src"
+rm -rf $DEV_DIR/src/*
 
-echo "Copying types to $NPM_DIST_NAME"
-cp -r src/typings npm_dist/src
+echo "Copying src/$DEV_DIR to $DEV_DIR"
+cp -r src/$DEV_DIR/* $DEV_DIR/src
 
-echo "Successfully copied components to $NPM_DIST_NAME"
+# echo "Copying types to $NPM_DIST_NAME"
+# cp -r src/typings npm_dist/src
 
-cd $NPM_DIST_NAME
+echo "Successfully copied files to $DEV_DIR/src"
 
-echo "Preparing to build from $NPM_DIST_NAME"
+cd $DEV_DIR
+
+echo "Preparing to build from $DEV_DIR"
 yarn build
 
 echo "Built npm package"
-echo "Now go edit $NPM_DIST_NAME/package.json and then run npm publish when you're ready"
+echo "Now go edit $DEV_DIR/package.json and then run npm publish when you're ready"
