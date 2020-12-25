@@ -13,4 +13,7 @@ fi
 cd $DIST_DIR
 
 echo "Publishing... $PWD"
-npm publish
+
+# npm login
+# npm whoami
+yarn publish
