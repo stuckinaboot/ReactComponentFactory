@@ -1,7 +1,8 @@
 {
   "name": "react-component-factory",
   "version": "0.1.0",
-  "private": true,
+  "author": "stuckinaboot",
+  "repository": "https://github.com/stuckinaboot/ReactComponentFactory.git",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
