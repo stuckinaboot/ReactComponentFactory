@@ -12,5 +12,7 @@ then
     exit 1
 fi
 
+echo "Component $COMPONENT_DEV_DIR does not exist"
 mkdir $COMPONENT_DEV_DIR
-cp npm_prepare/ $COMPONENT_DEV_DIR
+cp -r npm_prepare/ $COMPONENT_DEV_DIR
+echo "Created $COMPONENT_DEV_DIR. Now get building!"
