@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+ROOT=$PWD
 DEV_DIR=$1
 COMPONENT_DEV_DIR="src/components/$DEV_DIR"
 NPM_BOILERPLATE_DIR="factory/boilerplate/npm_base"
@@ -29,6 +30,12 @@ else
     cp -r $NPM_BOILERPLATE_DIR/ $DIST_DIR/
 fi
 
+cd $COMPONENT_DEV_DIR
+echo "Incrementing version number"
+npm version patch
+
+cd $ROOT
+
 echo "Clearing existing $DIST_DIR/src"
 rm -rf $DIST_DIR/src/*
 
@@ -40,4 +47,11 @@ cd $DIST_DIR/src
 mv package.json ..
 
 echo "Successfully copied files to $DIST_DIR/src"
-echo "Next steps: Edit $DIST_DIR/package.json, in $DIST_DIR run yarn and yarn build, and finally npm publish when you're ready"
+echo "Installing npm modules"
+yarn
+
+echo "Building for npm..."
+yarn build
+
+echo "Build successfully"
+echo "Run npm publish when you're ready"
