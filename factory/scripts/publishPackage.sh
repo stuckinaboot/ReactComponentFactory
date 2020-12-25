@@ -14,6 +14,5 @@ cd $DIST_DIR
 
 echo "Publishing... $PWD"
 
-# npm login
-# npm whoami
-yarn publish
+# Publish package (use yes "" to skip through any prompts)
+yes "" | yarn publish
