@@ -1,15 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ColorButton from "./components";
+import CB from "mui-color-button";
 
 function App() {
   return (
     <div className="App">
-      <ColorButton
-        label={"Foobar"}
-        textColor={"white"}
-        backgroundColor={"blue"}
-      />
+      <CB label={"fudge"} backgroundColor={"blue"} textColor={"white"} />
     </div>
   );
 }
