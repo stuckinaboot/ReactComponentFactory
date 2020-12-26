@@ -36,6 +36,7 @@ export default function CopyableText(props: {
               ),
               style: { fontSize: "0.8rem" },
             }}
+            style={{ cursor: "pointer" }}
           />
         </Button>
       ) : (

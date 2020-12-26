@@ -4,7 +4,7 @@ import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
-import CopyableText from "mui-copyable-text";
+import CopyableText from "./components/CopyableText";
 import { showAlert, AlertLocation } from "show-alert";
 
 function App() {
