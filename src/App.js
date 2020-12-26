@@ -3,6 +3,7 @@ import ColorButton from "./components/MuiColorButton";
 import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
+import SimpleDialog from "./components/SimpleDialog";
 
 function App() {
   return (
@@ -10,11 +11,13 @@ function App() {
       <Grid container style={{ margin: 20 }}>
         <Grid item xs={4}>
           <RawCard title="n">
-            <ColorButton
-              label={"Woohoo!"}
-              textColor={"white"}
-              backgroundColor={"red"}
-            />
+            <SimpleDialog title="Testing" description="Test description">
+              <ColorButton
+                label={"Woohoo!"}
+                textColor={"white"}
+                backgroundColor={"red"}
+              />
+            </SimpleDialog>
           </RawCard>
         </Grid>
         <Grid item xs={4}>
