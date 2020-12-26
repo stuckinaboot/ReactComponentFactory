@@ -52,7 +52,7 @@ yarn
 
 # Add react (we don't include it in boilerplate package.json
 # because that will result in https://reactjs.org/warnings/invalid-hook-call-warning.html)
-yarn add --dev react react-dom
+yarn add --dev react react-dom @types/react @types/react-dom
 
 echo "Building for npm..."
 yarn build
