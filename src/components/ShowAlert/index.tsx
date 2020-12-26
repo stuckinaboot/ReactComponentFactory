@@ -2,7 +2,7 @@ import React from "react";
 import cogoToast from "cogo-toast";
 import { Box, debounce, Grid } from "@material-ui/core";
 
-enum AlertType {
+export enum AlertType {
   SUCCESS = "success",
   DANGER = "danger",
   INFO = "info",
@@ -10,7 +10,7 @@ enum AlertType {
   WARNING = "warning",
 }
 
-enum AlertLocation {
+export enum AlertLocation {
   BOTTOM_RIGHT = "bottom-right",
   TOP_RIGHT = "top-right",
 }
