@@ -6,6 +6,7 @@ Rapidly create, distribute, and iterate on React components
 
 ## How to
 
+0. Fork this repository and clone your fork. **This repo is intended to be used as a fork and, by not doing so, you may make life harder for yourself later on**
 1. `yarn comp-create some_name` to create a component
 2. Go into `src/components/some_name` and add code for your component, install npm modules as needed, and try out your component by using the component in `App.js` and running `yarn start`
 3. Edit `package.json` to reflect your component
