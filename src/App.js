@@ -4,7 +4,7 @@ import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
-import { showAlert, AlertLocation } from "./components/ShowAlert";
+import { showAlert, AlertLocation } from "show-alert";
 
 function App() {
   return (
