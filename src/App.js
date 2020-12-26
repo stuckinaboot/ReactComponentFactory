@@ -4,6 +4,7 @@ import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
+import { showAlert } from "./components/ShowAlert";
 
 function App() {
   return (
@@ -11,7 +12,19 @@ function App() {
       <Grid container style={{ margin: 20 }}>
         <Grid item xs={4}>
           <RawCard title="n">
-            <SimpleDialog title="Testing" description="Test description">
+            <SimpleDialog
+              title="Testing"
+              description={
+                <>
+                  <ColorButton
+                    label={"Alert!"}
+                    textColor={"white"}
+                    backgroundColor={"red"}
+                    onClick={() => showAlert("woah")}
+                  />
+                </>
+              }
+            >
               <ColorButton
                 label={"Woohoo!"}
                 textColor={"white"}

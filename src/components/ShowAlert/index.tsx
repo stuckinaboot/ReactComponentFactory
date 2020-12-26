@@ -10,6 +10,11 @@ enum AlertType {
   WARNING = "warning",
 }
 
+enum AlertLocation {
+  BOTTOM_RIGHT = "bottom-right",
+  TOP_RIGHT = "top-right",
+}
+
 const OFF_WHITE = "#fafafa";
 
 // in milliseconds
@@ -21,7 +26,7 @@ export function showAlert(
     timeout?: number;
     type?: AlertType;
     title?: string;
-    location?: "bottom-right" | "top-right";
+    location?: AlertLocation;
     button?: { title: string; onClick: () => any };
   }
 ) {
@@ -31,7 +36,7 @@ export function showAlert(
   const duration =
     options != null && options.timeout != null ? options.timeout : 5000;
   const position =
-    options && options.location ? options.location : "bottom-right";
+    options && options.location ? options.location : AlertLocation.BOTTOM_RIGHT;
   const button = options && options.button ? options.button : null;
 
   // duration is in milliseconds and hideAfter expects seconds
