@@ -3,7 +3,7 @@ import ColorButton from "./components/MuiColorButton";
 import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
-import SimpleDialog from "./components/SimpleDialog";
+import SimpleDialog from "mui-simple-dialog";
 
 function App() {
   return (
