@@ -1,6 +1,6 @@
 import "./App.css";
 import ColorButton from "./components/MuiColorButton";
-import RawCard from "./components/RawCard";
+import RawCard from "mui-raw-card";
 
 function App() {
   return (
