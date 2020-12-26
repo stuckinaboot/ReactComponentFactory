@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-NPM_DIST_NAME="npm_base"
-
 DEV_DIR=$1
 COMPONENT_DEV_DIR="src/components/$DEV_DIR"
 PREPARE_DIR="factory/boilerplate/npm_prepare"
