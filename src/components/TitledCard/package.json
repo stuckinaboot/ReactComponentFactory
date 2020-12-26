@@ -1,9 +1,9 @@
 {
-  "name": "todo",
-  "version": "1.0.0",
+  "name": "mui-titled-card",
+  "version": "1.0.1",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "stuckinaboot",
+  "license": "MIT",
   "repository": "",
   "main": "dist/index.js",
   "engines": {
@@ -14,6 +14,7 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
+  "peerDependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
@@ -28,5 +29,8 @@
     "react",
     "typescript",
     "npm"
-  ]
+  ],
+  "dependencies": {
+    "mui-raw-card": "^1.0.8"
+  }
 }

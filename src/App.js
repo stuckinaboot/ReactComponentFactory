@@ -1,6 +1,7 @@
 import "./App.css";
 import ColorButton from "./components/MuiColorButton";
 import RawCard from "mui-raw-card";
+import TitledCard from "./components/TitledCard";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           backgroundColor={"red"}
         />
       </RawCard>
+      <TitledCard titleBackgroundColor={"red"} title="foo" />
     </div>
   );
 }
