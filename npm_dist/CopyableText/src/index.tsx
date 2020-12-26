@@ -36,7 +36,9 @@ export default function CopyableText(props: {
               ),
               style: { fontSize: "0.8rem" },
             }}
-            style={{ cursor: "pointer" }}
+            // Show the cursor as a hand to indicate the text field
+            // is clickable
+            inputProps={{ style: { cursor: "pointer" } }}
           />
         </Button>
       ) : (
