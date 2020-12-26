@@ -1,0 +1,36 @@
+{
+  "name": "mui-copyable-text",
+  "version": "1.0.6",
+  "description": "MUI copyable text",
+  "author": "stuckinaboot",
+  "license": "",
+  "repository": "",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "typescript": "^2.8.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "typescript",
+    "npm"
+  ],
+  "dependencies": {
+    "@material-ui/icons": "^4.11.2",
+    "react-copy-to-clipboard": "^5.0.2"
+  }
+}

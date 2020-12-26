@@ -4,6 +4,7 @@ import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
+import CopyableText from "mui-copyable-text";
 import { showAlert, AlertLocation } from "show-alert";
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
                         title: "foo",
                       })
                     }
+                  />
+                  <CopyableText
+                    textToCopy="Potatos"
+                    onCopy={() => showAlert("Woohoo")}
                   />
                 </>
               }

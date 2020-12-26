@@ -58,4 +58,4 @@ echo "Building for npm..."
 yarn build
 
 echo "Build successfully"
-echo "Run npm publish when you're ready"
+echo "Run yarn npm-publish $DEV_DIR when you're ready"
