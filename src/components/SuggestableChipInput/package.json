@@ -1,8 +1,8 @@
 {
-  "name": "mui-copyable-text",
-  "version": "1.0.9",
-  "description": "MUI copyable text",
-  "author": "stuckinaboot",
+  "name": "suggestable-chip-input",
+  "version": "1.0.2",
+  "description": "MUI suggestable chip input",
+  "author": "",
   "license": "",
   "repository": "",
   "main": "dist/index.js",
@@ -15,12 +15,8 @@
     "start": "rollup -c -w"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
     "rollup": "^1.29.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "typescript": "^2.8.3"
@@ -35,7 +31,6 @@
   ],
   "dependencies": {
     "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "react-copy-to-clipboard": "^5.0.2"
+    "@material-ui/lab": "^4.0.0-alpha.57"
   }
 }

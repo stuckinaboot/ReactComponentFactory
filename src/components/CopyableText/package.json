@@ -1,6 +1,6 @@
 {
   "name": "mui-copyable-text",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "MUI copyable text",
   "author": "stuckinaboot",
   "license": "",
@@ -30,6 +30,7 @@
     "npm"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "react-copy-to-clipboard": "^5.0.2"
   }

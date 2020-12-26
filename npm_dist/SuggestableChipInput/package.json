@@ -1,8 +1,8 @@
 {
-  "name": "mui-copyable-text",
-  "version": "1.0.9",
-  "description": "MUI copyable text",
-  "author": "stuckinaboot",
+  "name": "suggestable-chip-input",
+  "version": "1.0.2",
+  "description": "MUI suggestable chip input",
+  "author": "",
   "license": "",
   "repository": "",
   "main": "dist/index.js",
@@ -35,7 +35,6 @@
   ],
   "dependencies": {
     "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "react-copy-to-clipboard": "^5.0.2"
+    "@material-ui/lab": "^4.0.0-alpha.57"
   }
 }

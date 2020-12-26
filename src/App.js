@@ -5,6 +5,7 @@ import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
 import CopyableText from "./components/CopyableText";
+import SuggestableChipInput from "./components/SuggestableChipInput";
 import { showAlert, AlertLocation } from "show-alert";
 
 function App() {
@@ -45,6 +46,13 @@ function App() {
         </Grid>
         <Grid item xs={4}>
           <TitledCard titleBackgroundColor={"red"} title="foo" />
+          <SuggestableChipInput
+            onChipsChange={() => {}}
+            initialValue={[]}
+            textInputLabel="woah"
+            suggestions={["potato"]}
+            maxChips={3}
+          />
         </Grid>
       </Grid>
     </div>
