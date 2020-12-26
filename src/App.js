@@ -1,7 +1,7 @@
 import "./App.css";
 import ColorButton from "./components/MuiColorButton";
 import RawCard from "mui-raw-card";
-import TitledCard from "./components/TitledCard";
+import TitledCard from "mui-titled-card";
 
 function App() {
   return (
