@@ -21,4 +21,8 @@ Rapidly create, distribute, and iterate on React components
 
 - You will never need to touch `npm_dist`, `factory`, `public` if you are using RCF as is
 - To edit the boilerplate scripts, npm build, and npm distribution scripts, go to `factory/scripts`
+
+### Troubleshooting
+
 - Always remember to install the packages your particular component needs from your component's subdirectory (e.g. `cd src/components/my_component; yarn install @material-ui/core`). Sometimes you can get away with not installing those packages during the component development phase but during the npm build/distribution phase, you will receive an error saying package not installed, and you will realize you played yourself
+- `@types/react/index"' has no default export.` this error implies you should change the line `import React from "react"` to `import * as React from "react"`
