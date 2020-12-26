@@ -14,17 +14,11 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
-  "peerDependencies": {
-    "react": ">= 16.8.0 < 2",
-    "react-dom": ">= 16.8.0 < 2"
-  },
   "devDependencies": {
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "rollup": "^1.29.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "typescript": "^2.8.3"
@@ -35,6 +29,8 @@
   "keywords": [
     "react",
     "typescript",
-    "npm"
+    "npm",
+    "rcf",
+    "react-component-factory"
   ]
 }

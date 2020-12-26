@@ -1,9 +1,9 @@
 {
-  "name": "mui-color-button",
-  "version": "1.0.22",
-  "description": "Customizable React material-ui color button",
-  "author": "stuckinaboot",
-  "license": "MIT",
+  "name": "mui-raw-card",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "",
   "repository": "",
   "main": "dist/index.js",
   "engines": {
@@ -31,11 +31,8 @@
     "react",
     "typescript",
     "npm",
-    "color",
-    "button",
-    "mui",
-    "material-ui",
-    "customizable"
+    "rcf",
+    "react-component-factory"
   ],
   "dependencies": {
     "@material-ui/core": "^4.11.2"
