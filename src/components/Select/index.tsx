@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MenuItem, Select, Typography } from "@material-ui/core";
+import { MenuItem, Select } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 
 const NONE_VALUE = "CustomSelectComponentNoneValue";
@@ -46,7 +46,9 @@ export default function CustomSelect(props: {
             },
           },
         }}
-        style={{ borderRadius: 20 }}
+        // Top margin is meant to cause the same visual appearance
+        // as npm module mui-text-field
+        style={{ borderRadius: 20, textAlign: "left", marginTop: 8 }}
       >
         {props.placeholder != null && (
           <MenuItem value={NONE_VALUE} disabled>

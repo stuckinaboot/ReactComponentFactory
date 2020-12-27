@@ -62,7 +62,7 @@ function App() {
             maxChips={3}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <DropdownMenu
             button={
               <IconButton>
@@ -81,7 +81,7 @@ function App() {
             ]}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <StepDialog
             title="Dialog title"
             confirmBtnTitle="Confirm"
@@ -94,7 +94,7 @@ function App() {
             fuck
           </StepDialog>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={4} style={{ textAlign: "left" }}>
           {isMobile() ? "mobile" : "not mobile"}
         </Grid>
         <Grid item xs={4}>
@@ -105,7 +105,7 @@ function App() {
             Click to show raw file
           </RawFileDialog>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <TextField
             label="Foobar"
             onValueChange={() => {}}
@@ -113,10 +113,11 @@ function App() {
             placeholder="foo tacoo"
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <Select
             items={[{ text: "foo", value: 1 }]}
             // initialValue={1}
+            label="Country"
             onValueChange={() => console.log("foobar")}
           />
         </Grid>
