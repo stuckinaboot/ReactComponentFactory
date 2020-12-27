@@ -1,8 +1,8 @@
 {
-  "name": "mui-select",
+  "name": "todo",
   "version": "1.0.1",
-  "description": "MUI select component",
-  "author": "stuckinaboot",
+  "description": "",
+  "author": "",
   "license": "",
   "repository": "",
   "main": "dist/index.js",
@@ -15,8 +15,12 @@
     "start": "rollup -c -w"
   },
   "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "rollup": "^1.29.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "typescript": "^2.8.3"

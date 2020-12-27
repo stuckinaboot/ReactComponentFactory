@@ -116,7 +116,7 @@ function App() {
         <Grid item xs={4}>
           <Select
             items={[{ text: "foo", value: 1 }]}
-            initialValue={1}
+            // initialValue={1}
             onValueChange={() => console.log("foobar")}
           />
         </Grid>
