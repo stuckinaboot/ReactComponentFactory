@@ -6,7 +6,7 @@ import { Grid } from "@material-ui/core";
 import SimpleDialog from "./components/SimpleDialog";
 import CopyableText from "./components/CopyableText";
 import SuggestableChipInput from "./components/SuggestableChipInput";
-import DropdownMenu from "mui-dropdown";
+import DropdownMenu from "./components/DropdownMenu";
 import { showAlert, AlertLocation } from "show-alert";
 import { Button, IconButton } from "@material-ui/core";
 import StepDialog from "./components/StepDialog";
@@ -68,6 +68,10 @@ function App() {
               </IconButton>
             }
             menuItems={[
+              {
+                icon: <SendIcon fontSize="small" />,
+                title: "normal",
+              },
               {
                 icon: <SendIcon fontSize="small" />,
                 custom: <Button>potato</Button>,

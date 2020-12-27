@@ -55,6 +55,7 @@ export default function DropdownMenu(props: {
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
+          PaperProps={{ style: { borderRadius: 20 } }}
         >
           {props.menuItems.map((item) => (
             <MenuItem

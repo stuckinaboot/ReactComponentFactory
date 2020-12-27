@@ -30,6 +30,6 @@
     "npm"
   ],
   "dependencies": {
-    "mui-simple-dialog": "^1.0.4"
+    "mui-simple-dialog": "^1.0.5"
   }
 }
