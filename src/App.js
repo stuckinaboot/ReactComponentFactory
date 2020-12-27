@@ -14,6 +14,7 @@ import SendIcon from "@material-ui/icons/Send";
 import isMobile from "./components/CheckMobile";
 import RawFileDialog from "./components/RawFileDialog";
 import TextField from "./components/TextField";
+import Select from "./components/Select";
 
 function App() {
   return (
@@ -110,6 +111,13 @@ function App() {
             onValueChange={() => {}}
             helperText="foobar"
             placeholder="foo tacoo"
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <Select
+            items={[{ text: "foo", value: 1 }]}
+            initialValue={1}
+            onValueChange={() => console.log("foobar")}
           />
         </Grid>
       </Grid>
