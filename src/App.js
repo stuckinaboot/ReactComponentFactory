@@ -6,9 +6,9 @@ import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
 import CopyableText from "./components/CopyableText";
 import SuggestableChipInput from "./components/SuggestableChipInput";
-import DropdownMenu from "./components/DropdownMenu";
+import DropdownMenu from "mui-dropdown";
 import { showAlert, AlertLocation } from "show-alert";
-import { Button } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 function App() {
@@ -59,7 +59,11 @@ function App() {
         </Grid>
         <Grid item xs={4}>
           <DropdownMenu
-            button={<Button onClick={() => {}}>foobar</Button>}
+            button={
+              <IconButton>
+                <SendIcon fontSize="small" />
+              </IconButton>
+            }
             menuItems={[
               {
                 icon: <SendIcon fontSize="small" />,
