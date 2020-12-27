@@ -15,8 +15,8 @@ See the **How to** section to learn how to rapidly create new components and dis
 2. Go into `src/components/some_name` and add code for your component, install npm modules as needed, and try out your component by using the component in `App.js` and running `yarn start`
 3. Edit `package.json` to reflect your component
 4. Edit `README.md` to reflect your component
-5. `yarn npm-prepare some_name` to prepare the component for distribution
-6. `yarn npm-publish some_name` to publish the component to npm
+5. `yarn prep some_name` to prepare the component for distribution
+6. `yarn pub some_name` to publish the component to npm
 
 ## Pointers
 

@@ -28,8 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "comp": "./factory/scripts/createComponent.sh",
-    "npm-prepare": "./factory/scripts/preparePackage.sh",
-    "npm-publish": "./factory/scripts/publishPackage.sh"
+    "prep": "./factory/scripts/preparePackage.sh",
+    "pub": "./factory/scripts/publishPackage.sh"
   },
   "eslintConfig": {
     "extends": [
