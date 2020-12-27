@@ -1,8 +1,8 @@
 {
-  "name": "todo",
-  "version": "1.0.1",
-  "description": "",
-  "author": "",
+  "name": "mui-select",
+  "version": "1.0.2",
+  "description": "MUI select component",
+  "author": "stuckinaboot",
   "license": "",
   "repository": "",
   "main": "dist/index.js",
