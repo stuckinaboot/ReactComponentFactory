@@ -109,6 +109,7 @@ function App() {
             label="Foobar"
             onValueChange={() => {}}
             helperText="foobar"
+            placeholder="foo tacoo"
           />
         </Grid>
       </Grid>

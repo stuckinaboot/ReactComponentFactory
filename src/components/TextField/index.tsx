@@ -39,6 +39,7 @@ export default function CustomTextField(
       value={value}
       onChange={(e) => updateValue(e.target.value)}
       InputProps={{ style: { borderRadius: 20 } }}
+      InputLabelProps={{ shrink: true }}
       helperText={helperText}
       {...(props.password ? { password: true } : {})}
       {...props}
