@@ -32,7 +32,7 @@ export default function CustomTextField(
 
   return (
     <TextField
-      // margin="dense"
+      margin="dense"
       label={props.label}
       variant="outlined"
       fullWidth
