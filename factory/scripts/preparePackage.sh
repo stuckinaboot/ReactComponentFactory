@@ -45,6 +45,8 @@ cp -r $COMPONENT_DEV_DIR/ $DIST_DIR/src/
 echo "Moving src/components/$DEV_DIR/package.json to $DIST_DIR"
 cd $DIST_DIR/src
 mv package.json ..
+echo "Moving src/components/$DEV_DIR/README.md to $DIST_DIR"
+mv README.md ..
 
 echo "Successfully copied files to $DIST_DIR/src"
 echo "Installing npm modules"
