@@ -13,6 +13,7 @@ import StepDialog from "./components/StepDialog";
 import SendIcon from "@material-ui/icons/Send";
 import isMobile from "./components/CheckMobile";
 import RawFileDialog from "./components/RawFileDialog";
+import TextField from "./components/TextField";
 
 function App() {
   return (
@@ -102,6 +103,13 @@ function App() {
           >
             Click to show raw file
           </RawFileDialog>
+        </Grid>
+        <Grid item xs={4}>
+          <TextField
+            label="Foobar"
+            onValueChange={() => {}}
+            helperText="foobar"
+          />
         </Grid>
       </Grid>
     </div>
