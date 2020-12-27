@@ -11,6 +11,7 @@ import { showAlert, AlertLocation } from "show-alert";
 import { Button, IconButton } from "@material-ui/core";
 import StepDialog from "./components/StepDialog";
 import SendIcon from "@material-ui/icons/Send";
+import isMobile from "./components/CheckMobile";
 
 function App() {
   return (
@@ -85,6 +86,9 @@ function App() {
           >
             fuck
           </StepDialog>
+        </Grid>
+        <Grid item xs={4}>
+          {isMobile() ? "mobile" : "not mobile"}
         </Grid>
       </Grid>
     </div>
