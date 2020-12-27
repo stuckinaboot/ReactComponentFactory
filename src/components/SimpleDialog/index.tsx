@@ -27,6 +27,8 @@ export default function SimpleItemWithDialog(props: {
   preventDialogFromOpening?: boolean;
   preventCloseIfTrue?: boolean;
   forceOpen?: boolean;
+  onOpen?: () => any;
+  onClose?: () => any;
 }) {
   const [open, setOpen] = React.useState(
     props.openAtStart || props.forceOpen || false
@@ -34,6 +36,15 @@ export default function SimpleItemWithDialog(props: {
   const [closeTimeout, setCloseTimeout] = React.useState<
     NodeJS.Timeout | undefined
   >();
+
+  React.useEffect(() => {
+    if (!open) {
+      return;
+    }
+    if (props.onOpen != null) {
+      props.onOpen();
+    }
+  }, [open]);
 
   React.useEffect(() => {
     if (props.forceOpen != null) {
@@ -66,6 +77,9 @@ export default function SimpleItemWithDialog(props: {
     }
     if (props.forceOpen == null) {
       setOpen(false);
+    }
+    if (props.onClose != null) {
+      props.onClose();
     }
   };
 

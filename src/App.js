@@ -12,6 +12,7 @@ import { Button, IconButton } from "@material-ui/core";
 import StepDialog from "./components/StepDialog";
 import SendIcon from "@material-ui/icons/Send";
 import isMobile from "./components/CheckMobile";
+import RawFileDialog from "./components/RawFileDialog";
 
 function App() {
   return (
@@ -89,6 +90,14 @@ function App() {
         </Grid>
         <Grid item xs={4}>
           {isMobile() ? "mobile" : "not mobile"}
+        </Grid>
+        <Grid item xs={4}>
+          <RawFileDialog
+            title="Raw File"
+            endpoint="https://www.w3.org/TR/PNG/iso_8859-1.txt"
+          >
+            Click to show raw file
+          </RawFileDialog>
         </Grid>
       </Grid>
     </div>

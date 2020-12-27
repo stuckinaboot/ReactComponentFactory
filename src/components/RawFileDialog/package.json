@@ -1,8 +1,8 @@
 {
-  "name": "mui-simple-dialog",
-  "version": "1.0.4",
+  "name": "raw-file-dialog",
+  "version": "1.0.0",
   "description": "",
-  "author": "stuckinaboot",
+  "author": "",
   "license": "",
   "repository": "",
   "main": "dist/index.js",
@@ -15,12 +15,8 @@
     "start": "rollup -c -w"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
     "rollup": "^1.29.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "typescript": "^2.8.3"
@@ -34,6 +30,6 @@
     "npm"
   ],
   "dependencies": {
-    "check-mobile": "^1.0.5"
+    "mui-simple-dialog": "^1.0.4"
   }
 }
