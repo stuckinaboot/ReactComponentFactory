@@ -1,6 +1,6 @@
 {
   "name": "mui-step-dialog",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "MUI step dialog",
   "author": "stuckinaboot",
   "license": "MIT",
@@ -30,6 +30,7 @@
     "npm"
   ],
   "dependencies": {
-    "@material-ui/core": "^4.11.2"
+    "@material-ui/core": "^4.11.2",
+    "check-mobile": "^1.0.5"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "mui-simple-dialog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "author": "stuckinaboot",
   "license": "",
@@ -28,5 +28,8 @@
     "react",
     "typescript",
     "npm"
-  ]
+  ],
+  "dependencies": {
+    "check-mobile": "^1.0.5"
+  }
 }

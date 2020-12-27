@@ -8,6 +8,7 @@ import {
   DialogTitle,
   Typography,
 } from "@material-ui/core";
+import isMobile from "check-mobile";
 
 type CloseOnTimerParams = {
   timeInMilliseconds: number;
@@ -91,6 +92,7 @@ export default function SimpleItemWithDialog(props: {
         open={open}
         onClose={handleOnClose}
         disableBackdropClick={props.disableBackdropClick || false}
+        fullScreen={isMobile()}
       >
         <DialogTitle>{props.title}</DialogTitle>
         <DialogContent>

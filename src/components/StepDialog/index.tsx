@@ -8,6 +8,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Stepper from "@material-ui/core/Stepper";
+import isMobile from "check-mobile";
 
 type Step = { stepName: string; stepContents: React.ReactNode };
 
@@ -64,6 +65,7 @@ export default function StepDialog(props: {
         // Disable dismissing by clicking on backdrop
         disableBackdropClick={props.disableBackdropClick}
         style={{ overflow: "hidden" }}
+        fullScreen={isMobile()}
       >
         <DialogTitle>{props.title}</DialogTitle>
         <Stepper
