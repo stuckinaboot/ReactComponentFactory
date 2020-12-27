@@ -9,6 +9,7 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Stepper from "@material-ui/core/Stepper";
 import isMobile from "check-mobile";
+import ColorButton from "mui-color-button";
 
 type Step = { stepName: string; stepContents: React.ReactNode };
 
@@ -21,6 +22,7 @@ export default function StepDialog(props: {
   onClose?: () => any;
   onConfirm?: () => any;
   disableBackdropClick?: boolean;
+  nextBtnColor?: string;
 }) {
   const [error, setError] = React.useState("");
   const [activeStep, setActiveStep] = React.useState(0);
@@ -35,6 +37,9 @@ export default function StepDialog(props: {
     }
     setError("");
     if (activeStep + 1 >= props.steps.length) {
+      // Confirm btn pressed and no error received, so
+      // close dialog
+      handleClose();
       return;
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -66,6 +71,12 @@ export default function StepDialog(props: {
         disableBackdropClick={props.disableBackdropClick}
         style={{ overflow: "hidden" }}
         fullScreen={isMobile()}
+        PaperProps={{
+          style: {
+            borderRadius: 20,
+            boxShadow: "none",
+          },
+        }}
       >
         <DialogTitle>{props.title}</DialogTitle>
         <Stepper
@@ -88,25 +99,34 @@ export default function StepDialog(props: {
           <Grid container direction="column" spacing={7}>
             <Grid item>{getStepContent(activeStep)}</Grid>
             <Grid item container justify="flex-end" spacing={2}>
-              {activeStep === 0 ? (
-                <Grid item>
-                  <Button onClick={handleClose}>Cancel</Button>
-                </Grid>
-              ) : (
-                <Grid item>
-                  <Button onClick={handleBackButtonPressed}>Back</Button>
-                </Grid>
-              )}
               <Grid item>
-                <Button
-                  variant="contained"
-                  color="primary"
+                {activeStep === 0 ? (
+                  <ColorButton
+                    label="Cancel"
+                    textColor="black"
+                    backgroundColor="transparent"
+                    onClick={handleClose}
+                  />
+                ) : (
+                  <ColorButton
+                    label="Back"
+                    textColor="black"
+                    backgroundColor="transparent"
+                    onClick={handleBackButtonPressed}
+                  />
+                )}
+              </Grid>
+              <Grid item>
+                <ColorButton
+                  label={
+                    activeStep === props.steps.length - 1
+                      ? props.confirmBtnTitle
+                      : "Next"
+                  }
+                  textColor="white"
+                  backgroundColor={props.nextBtnColor || "#3f51b5"}
                   onClick={handleNextButtonPressed}
-                >
-                  {activeStep === props.steps.length - 1
-                    ? props.confirmBtnTitle
-                    : "Next"}
-                </Button>
+                />
               </Grid>
             </Grid>
           </Grid>

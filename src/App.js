@@ -3,7 +3,7 @@ import ColorButton from "./components/MuiColorButton";
 import RawCard from "mui-raw-card";
 import TitledCard from "mui-titled-card";
 import { Grid } from "@material-ui/core";
-import SimpleDialog from "mui-simple-dialog";
+import SimpleDialog from "./components/SimpleDialog";
 import CopyableText from "./components/CopyableText";
 import SuggestableChipInput from "./components/SuggestableChipInput";
 import DropdownMenu from "mui-dropdown";

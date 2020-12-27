@@ -107,6 +107,12 @@ export default function SimpleItemWithDialog(props: {
         onClose={handleOnClose}
         disableBackdropClick={props.disableBackdropClick || false}
         fullScreen={isMobile()}
+        PaperProps={{
+          style: {
+            borderRadius: 20,
+            boxShadow: "none",
+          },
+        }}
       >
         <DialogTitle>{props.title}</DialogTitle>
         <DialogContent>
