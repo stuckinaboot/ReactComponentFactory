@@ -9,6 +9,7 @@ import SuggestableChipInput from "./components/SuggestableChipInput";
 import DropdownMenu from "mui-dropdown";
 import { showAlert, AlertLocation } from "show-alert";
 import { Button, IconButton } from "@material-ui/core";
+import StepDialog from "./components/StepDialog";
 import SendIcon from "@material-ui/icons/Send";
 
 function App() {
@@ -71,6 +72,19 @@ function App() {
               },
             ]}
           />
+        </Grid>
+        <Grid item xs={4}>
+          <StepDialog
+            title="Dialog title"
+            confirmBtnTitle="Confirm"
+            steps={[
+              { stepName: "Foobar", stepContents: "woah" },
+              { stepName: "Foobar", stepContents: "hi" },
+            ]}
+            handleNextBtnPressed={() => {}}
+          >
+            fuck
+          </StepDialog>
         </Grid>
       </Grid>
     </div>
