@@ -6,7 +6,10 @@ import { Grid } from "@material-ui/core";
 import SimpleDialog from "mui-simple-dialog";
 import CopyableText from "./components/CopyableText";
 import SuggestableChipInput from "./components/SuggestableChipInput";
+import DropdownMenu from "./components/DropdownMenu";
 import { showAlert, AlertLocation } from "show-alert";
+import { Button } from "@material-ui/core";
+import SendIcon from "@material-ui/icons/Send";
 
 function App() {
   return (
@@ -52,6 +55,17 @@ function App() {
             textInputLabel="woah"
             suggestions={["potato"]}
             maxChips={3}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <DropdownMenu
+            button={<Button onClick={() => {}}>foobar</Button>}
+            menuItems={[
+              {
+                icon: <SendIcon fontSize="small" />,
+                custom: <Button>potato</Button>,
+              },
+            ]}
           />
         </Grid>
       </Grid>
