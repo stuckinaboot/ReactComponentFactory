@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { Grid, Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
