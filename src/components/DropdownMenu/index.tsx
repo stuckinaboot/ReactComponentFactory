@@ -104,6 +104,7 @@ export default function DropdownMenu(props: {
                         }
                         item.onClick();
                       }}
+                      key={item.title || Math.random() + "abc"}
                     >
                       {item.icon != null && (
                         <ListItemIcon>{item.icon}</ListItemIcon>

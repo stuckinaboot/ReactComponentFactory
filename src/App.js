@@ -1,7 +1,7 @@
 import "./App.css";
 import ColorButton from "./components/MuiColorButton";
 import RawCard from "mui-raw-card";
-import TitledCard from "mui-titled-card";
+import TitledCard from "./components/TitledCard";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "./components/SimpleDialog";
 import CopyableText from "./components/CopyableText";
@@ -25,8 +25,7 @@ function App() {
         selectedNavItemText="potato"
       />
       <Grid container style={{ margin: 20 }}>
-        {/* <Button variant="contained">foobar</Button> */}
-        {/* <Grid item xs={4}>
+        <Grid item xs={4}>
           <RawCard title="n">
             <SimpleDialog
               title="Testing"
@@ -57,8 +56,8 @@ function App() {
               />
             </SimpleDialog>
           </RawCard>
-        </Grid> */}
-        {/* <Grid item xs={4}>
+        </Grid>
+        <Grid item xs={4}>
           <TitledCard titleBackgroundColor={"red"} title="foo" />
           <SuggestableChipInput
             onChipsChange={() => {}}
@@ -67,7 +66,7 @@ function App() {
             suggestions={["potato"]}
             maxChips={3}
           />
-        </Grid> */}
+        </Grid>
         <Grid item xs={12}>
           <DropdownMenu
             buttonContents={<SendIcon fontSize="small" />}
