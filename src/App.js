@@ -8,21 +8,25 @@ import CopyableText from "./components/CopyableText";
 import SuggestableChipInput from "./components/SuggestableChipInput";
 import DropdownMenu from "./components/DropdownMenu";
 import { showAlert, AlertLocation } from "show-alert";
-import { Button, IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import StepDialog from "./components/StepDialog";
 import SendIcon from "@material-ui/icons/Send";
 import isMobile from "./components/CheckMobile";
 import RawFileDialog from "./components/RawFileDialog";
 import TextField from "./components/TextField";
 import Select from "./components/Select";
-import CustomAppBar from "mui-app-bar";
+import CustomAppBar from "./components/CustomAppBar";
 
 function App() {
   return (
     <div className="App">
-      <CustomAppBar navItems={[{ text: "potato", endpoint: "/foo" }]} />
+      <CustomAppBar
+        navItems={[{ text: "potato", endpoint: "/foo" }]}
+        selectedNavItemText="potato"
+      />
       <Grid container style={{ margin: 20 }}>
-        <Grid item xs={4}>
+        {/* <Button variant="contained">foobar</Button> */}
+        {/* <Grid item xs={4}>
           <RawCard title="n">
             <SimpleDialog
               title="Testing"
@@ -53,8 +57,8 @@ function App() {
               />
             </SimpleDialog>
           </RawCard>
-        </Grid>
-        <Grid item xs={4}>
+        </Grid> */}
+        {/* <Grid item xs={4}>
           <TitledCard titleBackgroundColor={"red"} title="foo" />
           <SuggestableChipInput
             onChipsChange={() => {}}
@@ -63,14 +67,10 @@ function App() {
             suggestions={["potato"]}
             maxChips={3}
           />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <DropdownMenu
-            button={
-              <IconButton>
-                <SendIcon fontSize="small" />
-              </IconButton>
-            }
+            buttonContents={<SendIcon fontSize="small" />}
             menuItems={[
               {
                 icon: <SendIcon fontSize="small" />,
@@ -93,7 +93,7 @@ function App() {
             ]}
             handleNextBtnPressed={() => {}}
           >
-            fuck
+            woah
           </StepDialog>
         </Grid>
         <Grid item xs={4} style={{ textAlign: "left" }}>
