@@ -61,7 +61,10 @@ export default function DropdownMenu(props: {
     <div style={{ display: "flex" }}>
       {/* NOTE: we intentionally use Button and not IconButton 
       because using IconButton caused style issues in components outside this module, which
-      seems to be a MUI bug. So sticking to Button for now. */}
+      seems to be a MUI bug. So sticking to Button for now.
+      However, this may be due to the components directory having multiple copies of
+      material-ui and so maybe it's fine in production (since only a single material-ui lib copy
+      will exist in prod, https://material-ui.com/getting-started/faq/#i-have-several-instances-of-styles-on-the-page) */}
       <Button ref={anchorRef} onClick={handleToggle}>
         {props.buttonContents}
       </Button>
@@ -77,14 +80,8 @@ export default function DropdownMenu(props: {
             style={{
               transformOrigin:
                 placement === "bottom" ? "center top" : "center bottom",
-              backgroundColor: "green",
             }}
           >
-            {/* NOTE: we use Box rather than Paper here
-             as Paper causes a weird bug where clicking the button to
-             grow the menu causes some Material-UI (MUI) styles of unrelated components
-             that are outside of this module to change. Assuming this is
-             a bug with MUI for now so sticking with Box for now */}
             <Box
               style={{
                 border: "1px solid #f3f3f3",
@@ -93,6 +90,11 @@ export default function DropdownMenu(props: {
                 backgroundColor: "#fafafa",
               }}
             >
+              {/* NOTE: we use Box rather than Paper here
+               as Paper causes a weird bug where clicking the button to
+               grow the menu causes some Material-UI (MUI) styles of unrelated components
+               that are outside of this module to change. Assuming this is
+               a bug with MUI for now so sticking with Box for now */}
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                   {props.menuItems.map((item) => (

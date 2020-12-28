@@ -10,12 +10,12 @@ import Stepper from "@material-ui/core/Stepper";
 import isMobile from "check-mobile";
 import ColorButton from "mui-color-button";
 
-type Step = { stepName: string; stepContents: React.ReactNode };
+type StepItem = { stepName: string; stepContents: React.ReactNode };
 
 export default function StepDialog(props: {
   children: React.ReactNode;
   title: string;
-  steps: Step[];
+  steps: StepItem[];
   handleNextBtnPressed: (preNextActiveStep: number) => Promise<string | null>;
   confirmBtnTitle: string;
   onClose?: () => any;

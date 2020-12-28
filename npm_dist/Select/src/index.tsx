@@ -14,7 +14,12 @@ export default function CustomSelect(props: {
   label?: string;
 }): React.ReactElement {
   const [value, setValue] = React.useState<any | undefined>(
-    props.initialValue || NONE_VALUE
+    props.initialValue ||
+      (props.placeholder != null
+        ? NONE_VALUE
+        : props.items.length > 0
+        ? props.items[0].value
+        : undefined)
   );
 
   return (
@@ -51,12 +56,14 @@ export default function CustomSelect(props: {
         style={{ borderRadius: 20, textAlign: "left", marginTop: 8 }}
       >
         {props.placeholder != null && (
-          <MenuItem value={NONE_VALUE} disabled>
+          <MenuItem value={NONE_VALUE} key={NONE_VALUE} disabled>
             {props.placeholder}
           </MenuItem>
         )}
         {props.items.map(({ text, value }) => (
-          <MenuItem value={value}>{text}</MenuItem>
+          <MenuItem value={value} key={text}>
+            {text}
+          </MenuItem>
         ))}
       </Select>
     </>
