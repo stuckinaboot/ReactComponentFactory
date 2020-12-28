@@ -15,10 +15,12 @@ import isMobile from "./components/CheckMobile";
 import RawFileDialog from "./components/RawFileDialog";
 import TextField from "./components/TextField";
 import Select from "./components/Select";
+import CustomAppBar from "mui-app-bar";
 
 function App() {
   return (
     <div className="App">
+      <CustomAppBar navItems={[{ text: "potato", endpoint: "/foo" }]} />
       <Grid container style={{ margin: 20 }}>
         <Grid item xs={4}>
           <RawCard title="n">
@@ -116,7 +118,6 @@ function App() {
         <Grid item xs={6}>
           <Select
             items={[{ text: "foo", value: 1 }]}
-            // initialValue={1}
             label="Country"
             onValueChange={() => console.log("foobar")}
           />
