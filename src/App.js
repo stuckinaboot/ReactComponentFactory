@@ -16,6 +16,7 @@ import RawFileDialog from "./components/RawFileDialog";
 import TextField from "./components/TextField";
 import Select from "./components/Select";
 import CustomAppBar from "./components/CustomAppBar";
+import Map from "./components/Map";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         selectedNavItemText="potato"
       />
       <Grid container style={{ margin: 20 }}>
-        <Grid item xs={4}>
+        {/* <Grid item xs={4}>
           <RawCard title="n">
             <SimpleDialog
               title="Testing"
@@ -56,8 +57,8 @@ function App() {
               />
             </SimpleDialog>
           </RawCard>
-        </Grid>
-        <Grid item xs={4}>
+        </Grid> */}
+        {/* <Grid item xs={4}>
           <TitledCard titleBackgroundColor={"red"} title="foo" />
           <SuggestableChipInput
             onChipsChange={() => {}}
@@ -66,8 +67,8 @@ function App() {
             suggestions={["potato"]}
             maxChips={3}
           />
-        </Grid>
-        <Grid item xs={12}>
+        </Grid> */}
+        {/* <Grid item xs={12}>
           <DropdownMenu
             buttonContents={<SendIcon fontSize="small" />}
             menuItems={[
@@ -81,8 +82,8 @@ function App() {
               },
             ]}
           />
-        </Grid>
-        <Grid item xs={12}>
+        </Grid> */}
+        {/* <Grid item xs={12}>
           <StepDialog
             title="Dialog title"
             confirmBtnTitle="Confirm"
@@ -119,6 +120,23 @@ function App() {
             items={[{ text: "foo", value: 1 }]}
             label="Country"
             onValueChange={() => console.log("foobar")}
+          />
+        </Grid> */}
+        <Grid item xs={12} style={{ height: 500, width: "100%" }}>
+          <Map
+            center={{ lat: 40.6892, long: -74.0445 }}
+            markerItems={[
+              {
+                lat: 40.6892,
+                long: -74.0445,
+                popupContent: "Statue of Liberty",
+              },
+              {
+                lat: 40.7004,
+                long: -74.0542,
+                popupContent: "Liberty State Park",
+              },
+            ]}
           />
         </Grid>
       </Grid>
