@@ -54,19 +54,14 @@ export default function SimpleMap(props: {
   zoom?: number;
   markerItems?: MarkerItem[];
 }) {
-  // const map = useMap();
   const zoom = props.zoom || DEFAULT_ZOOM;
 
-  // Map props are immutable so need to use hook to allow prop updates
-  // https://stackoverflow.com/questions/64736789/react-leaflet-map-doesnt-update
-  // map.setView([props.center.lat, props.center.long], zoom);
-
-  console.log("SHIT", { center: props.center });
+  // Map props are immutable so need to use MapConsumer
+  // https://react-leaflet.js.org/docs/api-map/
   return (
     <ContainerDimensions>
       {({ height, width }) => (
         <MapContainer
-          // ref={map}
           center={[props.center.lat, props.center.long]}
           zoom={zoom}
           scrollWheelZoom={true}
