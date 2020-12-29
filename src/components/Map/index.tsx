@@ -6,7 +6,6 @@ import {
   TileLayer,
   Marker,
   Popup,
-  useMap,
   MapConsumer,
 } from "react-leaflet";
 import L from "leaflet";
@@ -53,6 +52,7 @@ export default function SimpleMap(props: {
   center: Point;
   zoom?: number;
   markerItems?: MarkerItem[];
+  animateUpdateToView?: boolean;
 }) {
   const zoom = props.zoom || DEFAULT_ZOOM;
 
@@ -69,7 +69,9 @@ export default function SimpleMap(props: {
         >
           <MapConsumer>
             {(map) => {
-              map.setView([props.center.lat, props.center.long], zoom);
+              map.setView([props.center.lat, props.center.long], zoom, {
+                animate: props.animateUpdateToView || false,
+              });
               return (
                 <>
                   <TileLayer

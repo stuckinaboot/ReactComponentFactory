@@ -24,6 +24,27 @@ function App() {
     lat: 40.6892,
     long: -74.0445,
   });
+  const [marker1Point, setMarker1Point] = React.useState({
+    lat: 40.6892,
+    long: -74.0445,
+  });
+  const pt = React.useRef({
+    lat: 40.6892,
+    long: -74.0445,
+  });
+
+  // Animates the marker.
+  // Note: this will also re-render the whole map, which
+  // will reset the map's center as well to its center prop
+  // React.useEffect(() => {
+  //   setInterval(() => {
+  //     pt.current = {
+  //       lat: pt.current.lat + 0.001,
+  //       long: pt.current.long + 0.001,
+  //     };
+  //     setMarker1Point({ lat: pt.current.lat, long: pt.current.long });
+  //   }, 1000);
+  // }, []);
 
   const appBar = (
     <CustomAppBar
@@ -76,6 +97,8 @@ function App() {
       maxChips={3}
     />
   );
+
+  console.log("HIT", marker1Point, pt.current);
 
   return (
     <div className="App">
@@ -170,8 +193,8 @@ function App() {
               center={mapCenter}
               markerItems={[
                 {
-                  lat: 40.6892,
-                  long: -74.0445,
+                  lat: marker1Point.lat, // 40.6892,
+                  long: marker1Point.long, // -74.0445,
                   popupContent: "Statue of Liberty",
                 },
                 {
@@ -181,6 +204,7 @@ function App() {
                 },
                 { lat: 41.034, long: -73.7629, popupContent: "White plains" },
               ]}
+              animateUpdateToView
             />
           </div>
         </Grid>
