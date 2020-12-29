@@ -1,10 +1,21 @@
 import * as React from "react";
 import ContainerDimensions from "react-container-dimensions";
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  MapConsumer,
+} from "react-leaflet";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+// Useful references for future
+// Moving markers
+// https://github.com/PaulLeCam/react-leaflet/issues/598
 
 // Parts of map code sourced from
 // https://react-leaflet.js.org/docs/example-popup-marker
@@ -36,32 +47,55 @@ export type MarkerItem = {
   popupContent?: React.ReactNode;
 } & Point;
 
+const DEFAULT_ZOOM = 13;
+
 export default function SimpleMap(props: {
   center: Point;
   zoom?: number;
   markerItems?: MarkerItem[];
 }) {
+  // const map = useMap();
+  const zoom = props.zoom || DEFAULT_ZOOM;
+
+  // Map props are immutable so need to use hook to allow prop updates
+  // https://stackoverflow.com/questions/64736789/react-leaflet-map-doesnt-update
+  // map.setView([props.center.lat, props.center.long], zoom);
+
+  console.log("SHIT", { center: props.center });
   return (
     <ContainerDimensions>
       {({ height, width }) => (
         <MapContainer
+          // ref={map}
           center={[props.center.lat, props.center.long]}
-          zoom={props.zoom || 13}
+          zoom={zoom}
           scrollWheelZoom={true}
           style={{ height, width }}
         >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {props.markerItems != null &&
-            props.markerItems.map((item, idx) => (
-              <Marker key={"marker-" + idx} position={[item.lat, item.long]}>
-                {item.popupContent != null && (
-                  <Popup>{item.popupContent}</Popup>
-                )}
-              </Marker>
-            ))}
+          <MapConsumer>
+            {(map) => {
+              map.setView([props.center.lat, props.center.long], zoom);
+              return (
+                <>
+                  <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {props.markerItems != null &&
+                    props.markerItems.map((item, idx) => (
+                      <Marker
+                        key={"marker-" + idx}
+                        position={[item.lat, item.long]}
+                      >
+                        {item.popupContent != null && (
+                          <Popup>{item.popupContent}</Popup>
+                        )}
+                      </Marker>
+                    ))}
+                </>
+              );
+            }}
+          </MapConsumer>
         </MapContainer>
       )}
     </ContainerDimensions>
