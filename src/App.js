@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./App.css";
 import ColorButton from "./components/MuiColorButton";
-import RawCard from "mui-raw-card";
+import RawCard from "./components/RawCard";
 import TitledCard from "./components/TitledCard";
 import { Grid } from "@material-ui/core";
 import SimpleDialog from "./components/SimpleDialog";
@@ -19,7 +19,7 @@ import Select from "./components/Select";
 import CustomAppBar from "./components/CustomAppBar";
 import Map from "./components/Map";
 
-const SHOW_MAP = true;
+const SHOW_MAP = false;
 
 function App() {
   const [mapCenter, setMapCenter] = React.useState({
