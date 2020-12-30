@@ -11,6 +11,7 @@ export default function TitledCard(props: {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   innerCardStyle?: React.CSSProperties;
+  elevation?: number;
 }) {
   const {
     children,
@@ -19,6 +20,7 @@ export default function TitledCard(props: {
     titleBackgroundColor,
     style,
     innerCardStyle,
+    elevation,
   } = props;
 
   return (
@@ -37,7 +39,7 @@ export default function TitledCard(props: {
         </div>
       }
       style={{ backgroundColor: GRAY, ...(style != null ? style : {}) }}
-      elevation={10}
+      elevation={elevation || 10}
     >
       <div style={innerCardStyle}>{children}</div>
     </RawCard>
