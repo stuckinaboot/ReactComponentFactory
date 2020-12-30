@@ -59,7 +59,11 @@ function App() {
           </RawCard>
         </Grid>
         <Grid item xs={4}>
-          <TitledCard titleBackgroundColor={"red"} title="foo" />
+          <TitledCard
+            titleBackgroundColor={"red"}
+            title="fudge"
+            elevation={1}
+          />
           <SuggestableChipInput
             onChipsChange={() => {}}
             initialValue={[]}

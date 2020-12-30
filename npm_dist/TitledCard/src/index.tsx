@@ -39,7 +39,9 @@ export default function TitledCard(props: {
         </div>
       }
       style={{ backgroundColor: GRAY, ...(style != null ? style : {}) }}
-      elevation={elevation || 10}
+      // Use conditional to ensure that even if elevation is defined to
+      // be 0, elevation will be used instead of the default value
+      elevation={elevation != null ? elevation : 10}
     >
       <div style={innerCardStyle}>{children}</div>
     </RawCard>
