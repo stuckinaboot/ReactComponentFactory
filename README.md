@@ -22,6 +22,7 @@ See the **How to** section to learn how to rapidly create new components and dis
 
 - You will never need to touch `npm_dist`, `factory`, `public` if you are using RCF as is
 - To edit the boilerplate scripts, npm build, and npm distribution scripts, go to `factory/scripts`
+- Use `yarn upgrade --latest` on any RCF modules used in your projects to be on the most recent version, as these modules will likely be updated often
 
 ### Troubleshooting
 
