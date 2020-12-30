@@ -16,6 +16,7 @@ import RawFileDialog from "raw-file-dialog";
 import TextField from "mui-text-field";
 import Select from "mui-select";
 import CustomAppBar from "mui-app-bar";
+import Map from "simple-geo-map";
 
 function App() {
   return (
@@ -120,6 +121,27 @@ function App() {
             label="Country"
             onValueChange={() => console.log("foobar")}
           />
+        </Grid>
+        <Grid item xs={6}>
+          <div style={{ height: 500, width: "100%" }}>
+            <Map
+              center={{ lat: 0, long: 0 }}
+              markerItems={[
+                {
+                  lat: 40.6892,
+                  long: -74.0445,
+                  popupContent: "Statue of Liberty",
+                },
+                {
+                  lat: 40.7004,
+                  long: -74.0542,
+                  popupContent: "Liberty State Park",
+                },
+                { lat: 41.034, long: -73.7629, popupContent: "White plains" },
+              ]}
+              animateUpdateToView
+            />
+          </div>
         </Grid>
       </Grid>
     </div>

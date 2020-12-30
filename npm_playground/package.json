@@ -25,6 +25,7 @@
     "raw-file-dialog": "^1.0.1",
     "react-scripts": "4.0.1",
     "show-alert": "^1.0.4",
+    "simple-geo-map": "^1.0.32",
     "suggestable-chip-input": "^1.0.1",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4"
