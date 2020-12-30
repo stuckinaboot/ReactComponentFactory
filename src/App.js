@@ -19,32 +19,13 @@ import Select from "./components/Select";
 import CustomAppBar from "./components/CustomAppBar";
 import Map from "./components/Map";
 
+const SHOW_MAP = true;
+
 function App() {
   const [mapCenter, setMapCenter] = React.useState({
     lat: 40.6892,
     long: -74.0445,
   });
-  const [marker1Point, setMarker1Point] = React.useState({
-    lat: 40.6892,
-    long: -74.0445,
-  });
-  const pt = React.useRef({
-    lat: 40.6892,
-    long: -74.0445,
-  });
-
-  // Animates the marker.
-  // Note: this will also re-render the whole map, which
-  // will reset the map's center as well to its center prop
-  // React.useEffect(() => {
-  //   setInterval(() => {
-  //     pt.current = {
-  //       lat: pt.current.lat + 0.001,
-  //       long: pt.current.long + 0.001,
-  //     };
-  //     setMarker1Point({ lat: pt.current.lat, long: pt.current.long });
-  //   }, 1000);
-  // }, []);
 
   const appBar = (
     <CustomAppBar
@@ -98,116 +79,126 @@ function App() {
     />
   );
 
-  console.log("HIT", marker1Point, pt.current);
+  const map = (
+    <div style={{ width: "100%", height: "100%" }}>
+      <Button
+        onClick={() =>
+          setMapCenter({
+            lat: 41.034,
+            long: -73.7629,
+          })
+        }
+      >
+        White Plains
+      </Button>
+      <Button
+        onClick={() =>
+          setMapCenter({
+            lat: 40.6892,
+            long: -74.0445,
+          })
+        }
+      >
+        Statue of Liberty
+      </Button>
+      <div style={{ height: "100%", width: "100%" }}>
+        <Map
+          center={mapCenter}
+          markerItems={[
+            {
+              lat: 40.6892,
+              long: -74.0445,
+              popupContent: "Statue of Liberty",
+            },
+            {
+              lat: 40.7004,
+              long: -74.0542,
+              popupContent: "Liberty State Park",
+            },
+            { lat: 41.034, long: -73.7629, popupContent: "White plains" },
+          ]}
+          animateUpdateToView
+        />
+      </div>
+    </div>
+  );
 
   return (
     <div className="App">
       {/* {appBar} */}
       <Grid container style={{ margin: 20 }}>
-        {/* <Grid item xs={4}>
-          {rawCard}
-        </Grid>
-        <Grid item xs={4}>
-          {titledCard}
-        </Grid>
-        <Grid item xs={4}>
-          {chipInput}
-        </Grid>
-        <Grid item xs={12}>
-          <DropdownMenu
-            buttonContents={<SendIcon fontSize="small" />}
-            menuItems={[
-              {
-                icon: <SendIcon fontSize="small" />,
-                title: "normal",
-              },
-              {
-                icon: <SendIcon fontSize="small" />,
-                custom: <Button>potato</Button>,
-              },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <StepDialog
-            title="Dialog title"
-            confirmBtnTitle="Confirm"
-            steps={[
-              { stepName: "Foobar", stepContents: "woah" },
-              { stepName: "Foobar", stepContents: "hi" },
-            ]}
-            handleNextBtnPressed={() => {}}
-          >
-            woah
-          </StepDialog>
-        </Grid>
-        <Grid item xs={4} style={{ textAlign: "left" }}>
-          {isMobile() ? "mobile" : "not mobile"}
-        </Grid>
-        <Grid item xs={4}>
-          <RawFileDialog
-            title="Raw File"
-            endpoint="https://www.w3.org/TR/PNG/iso_8859-1.txt"
-          >
-            Click to show raw file
-          </RawFileDialog>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField
-            label="Foobar"
-            onValueChange={() => {}}
-            helperText="foobar"
-            placeholder="foo tacoo"
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Select
-            items={[{ text: "foo", value: 1 }]}
-            label="Country"
-            onValueChange={() => console.log("foobar")}
-          />
-          </Grid> */}
-        <Grid item xs={4} style={{ height: 500 }}>
-          <Button
-            onClick={() =>
-              setMapCenter({
-                lat: 41.034,
-                long: -73.7629,
-              })
-            }
-          >
-            White Plains
-          </Button>
-          <Button
-            onClick={() =>
-              setMapCenter({
-                lat: 40.6892,
-                long: -74.0445,
-              })
-            }
-          >
-            Statue of Liberty
-          </Button>
-          <div style={{ height: "100%", width: "100%" }}>
-            <Map
-              center={mapCenter}
-              markerItems={[
-                {
-                  lat: marker1Point.lat, // 40.6892,
-                  long: marker1Point.long, // -74.0445,
-                  popupContent: "Statue of Liberty",
-                },
-                {
-                  lat: 40.7004,
-                  long: -74.0542,
-                  popupContent: "Liberty State Park",
-                },
-                { lat: 41.034, long: -73.7629, popupContent: "White plains" },
-              ]}
-              animateUpdateToView
-            />
-          </div>
-        </Grid>
+        {!SHOW_MAP && (
+          <>
+            <Grid item xs={4}>
+              {rawCard}
+            </Grid>
+            <Grid item xs={4}>
+              {titledCard}
+            </Grid>
+            <Grid item xs={4}>
+              {chipInput}
+            </Grid>
+            <Grid item xs={12}>
+              <DropdownMenu
+                buttonContents={<SendIcon fontSize="small" />}
+                menuItems={[
+                  {
+                    icon: <SendIcon fontSize="small" />,
+                    title: "normal",
+                  },
+                  {
+                    icon: <SendIcon fontSize="small" />,
+                    custom: <Button>potato</Button>,
+                  },
+                ]}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <StepDialog
+                title="Dialog title"
+                confirmBtnTitle="Confirm"
+                steps={[
+                  { stepName: "Foobar", stepContents: "woah" },
+                  { stepName: "Foobar", stepContents: "hi" },
+                ]}
+                handleNextBtnPressed={() => {}}
+              >
+                woah
+              </StepDialog>
+            </Grid>
+            <Grid item xs={4} style={{ textAlign: "left" }}>
+              {isMobile() ? "mobile" : "not mobile"}
+            </Grid>
+            <Grid item xs={4}>
+              <RawFileDialog
+                title="Raw File"
+                endpoint="https://www.w3.org/TR/PNG/iso_8859-1.txt"
+              >
+                Click to show raw file
+              </RawFileDialog>
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                label="Foobar"
+                onValueChange={() => {}}
+                helperText="foobar"
+                placeholder="foo tacoo"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Select
+                items={[{ text: "foo", value: 1 }]}
+                label="Country"
+                onValueChange={() => console.log("foobar")}
+              />
+            </Grid>
+          </>
+        )}
+        {SHOW_MAP && (
+          <Grid item xs={4} style={{ height: 500 }}>
+            {map}
+          </Grid>
+        )}
       </Grid>
     </div>
   );
