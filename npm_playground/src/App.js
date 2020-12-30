@@ -1,5 +1,5 @@
 import "./App.css";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Typography } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
 import ColorButton from "mui-color-button";
@@ -22,8 +22,16 @@ function App() {
   return (
     <div className="App">
       <CustomAppBar
-        navItems={[{ text: "potato", endpoint: "/foo" }]}
-        selectedNavItemText="potato"
+        navItems={[
+          { text: "Page 1", endpoint: "/foo" },
+          { text: "Page 2", endpoint: "/bar" },
+          { text: "Page 3", endpoint: "/car" },
+        ]}
+        selectedNavItemText="Page 2"
+        logoImg={
+          "https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+        }
+        maxLogoWidth={120}
       />
       <Grid container style={{ margin: 20 }}>
         <Grid item xs={4}>
@@ -32,6 +40,10 @@ function App() {
               title="Testing"
               description={
                 <>
+                  <Typography>
+                    Some text could go here. Press the button to show an alert.
+                    Press the copyable text to copy
+                  </Typography>
                   <ColorButton
                     label={"Alert!"}
                     textColor={"white"}
@@ -58,19 +70,20 @@ function App() {
             </SimpleDialog>
           </RawCard>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={4} style={{ marginLeft: 10 }}>
           <TitledCard
-            titleBackgroundColor={"red"}
+            titleBackgroundColor={"orange"}
             title="fudge"
             elevation={1}
-          />
-          <SuggestableChipInput
-            onChipsChange={() => {}}
-            initialValue={[]}
-            textInputLabel="woah"
-            suggestions={["potato"]}
-            maxChips={3}
-          />
+          >
+            <SuggestableChipInput
+              onChipsChange={() => {}}
+              initialValue={[]}
+              textInputLabel="woah"
+              suggestions={["potato"]}
+              maxChips={3}
+            />
+          </TitledCard>
         </Grid>
         <Grid item xs={12}>
           <DropdownMenu
@@ -101,7 +114,8 @@ function App() {
           </StepDialog>
         </Grid>
         <Grid item xs={4} style={{ textAlign: "left" }}>
-          {isMobile() ? "mobile" : "not mobile"}
+          <RawCard>{isMobile() ? "mobile" : "not mobile"}</RawCard>
+          <br />
         </Grid>
         <Grid item xs={4}>
           <RawFileDialog
@@ -111,17 +125,17 @@ function App() {
             Click to show raw file
           </RawFileDialog>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
           <TextField
-            label="Foobar"
+            label="Name"
             onValueChange={() => {}}
             helperText="foobar"
             placeholder="foo tacoo"
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
           <Select
-            items={[{ text: "foo", value: 1 }]}
+            items={[{ text: "USA", value: 1 }]}
             label="Country"
             onValueChange={() => console.log("foobar")}
           />
