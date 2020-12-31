@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "simple-mui-table",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -30,6 +30,7 @@
     "npm"
   ],
   "dependencies": {
-    "@types/react-virtualized": "^9.21.10"
+    "@types/mui-datatables": "^3.7.0",
+    "mui-datatables": "^3.7.3"
   }
 }
