@@ -2,7 +2,10 @@ import * as React from "react";
 import MuiTable from "mui-virtualized-table";
 import { AutoSizer } from "react-virtualized";
 
-export type Column = { name: string; header: string };
+// MuiTable reference
+// https://github.com/techniq/mui-virtualized-table
+
+https: export type Column = { name: string; header: string };
 
 export default function Table(props: {
   columns: Column[];

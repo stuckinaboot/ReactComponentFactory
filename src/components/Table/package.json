@@ -30,8 +30,6 @@
     "npm"
   ],
   "dependencies": {
-    "@types/react-virtualized": "^9.21.10",
-    "mui-virtualized-table": "^2.2.3",
-    "react-virtualized": "^9.22.3"
+    "@types/react-virtualized": "^9.21.10"
   }
 }
