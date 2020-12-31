@@ -1,6 +1,6 @@
-# Suggestable Chip Input
+# Module Name
 
-MUI suggestable chip input
+Short description
 
 ## Overview
 

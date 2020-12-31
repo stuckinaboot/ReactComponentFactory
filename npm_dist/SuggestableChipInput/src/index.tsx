@@ -1,6 +1,12 @@
 import * as React from "react";
 
-import { Chip, Grid, TextField, Typography } from "@material-ui/core";
+import {
+  Chip,
+  Grid,
+  InputLabel,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export default function SuggestableChipInput(props: {
@@ -93,7 +99,6 @@ export default function SuggestableChipInput(props: {
   }
 
   function onInputBlur() {
-    console.log("FOO", currChips, currTxt, currTxt.length);
     if (currTxt.length === 0) {
       console.log(currChips);
       return;
@@ -104,6 +109,13 @@ export default function SuggestableChipInput(props: {
   return (
     <Grid container alignContent="center" alignItems="center" justify="center">
       <Grid item xs={12} sm={11}>
+        {props.textInputLabel != null && (
+          <InputLabel
+            style={{ textAlign: "left", fontSize: "0.8rem", paddingLeft: 10 }}
+          >
+            {props.textInputLabel}
+          </InputLabel>
+        )}
         <Autocomplete
           disableClearable
           value={currChips}
@@ -112,6 +124,9 @@ export default function SuggestableChipInput(props: {
           defaultValue={props.initialValue}
           filterSelectedOptions
           onBlur={onInputBlur}
+          // Top margin is meant to cause the same visual appearance
+          // as npm module mui-text-field
+          style={{ borderRadius: 20, textAlign: "left", marginTop: 8 }}
           renderTags={(value, getTagProps) =>
             value.map((option, index) => (
               <Chip
@@ -140,25 +155,38 @@ export default function SuggestableChipInput(props: {
               })}
           fullWidth
           onChange={(_, values) => handleChipsChange(values)}
-          renderInput={(params) => (
-            <TextField
-              style={{ whiteSpace: "nowrap", overflowWrap: "break-word" }}
-              // Only use multiple lines if the user can continue
-              // entering more chips (otherwise, pressing enter
-              // will increase the number of lines rather than
-              // number of chips)
-              {...(currChips.length < props.maxChips
-                ? {
-                    multiline: true,
-                  }
-                : {})}
-              {...params}
-              variant="outlined"
-              label={props.textInputLabel}
-              helperText={props.helperText || "Press enter to add multiple"}
-              onChange={onTextValChanged}
-            />
-          )}
+          renderInput={(params) => {
+            params.InputProps = {
+              ...params.InputProps,
+              // Since InputProps will be to the text field, we can ignore
+              // the ts warning about style not existing as we know definitively
+              // style does exist on text field
+              // @ts-ignore
+              style: { ...params.InputProps.style, borderRadius: 20 },
+            };
+            return (
+              <TextField
+                style={{
+                  whiteSpace: "nowrap",
+                  overflowWrap: "break-word",
+                }}
+                // Only use multiple lines if the user can continue
+                // entering more chips (otherwise, pressing enter
+                // will increase the number of lines rather than
+                // number of chips)
+                {...(currChips.length < props.maxChips
+                  ? {
+                      multiline: true,
+                    }
+                  : {})}
+                {...params}
+                variant="outlined"
+                // label={props.textInputLabel}
+                helperText={props.helperText || "Max is " + props.maxChips}
+                onChange={onTextValChanged}
+              />
+            );
+          }}
         />
       </Grid>
     </Grid>
