@@ -51,6 +51,7 @@ export default function Table(props: {
   title?: Title;
   backgroundColor?: string;
   borderRadius?: number;
+  onClick?: (rowValues: any[]) => any;
 }): React.ReactElement {
   const borderRadius = props.borderRadius || DEFAULT_BORDER_RADIUS;
   // Styling the table
@@ -102,6 +103,7 @@ export default function Table(props: {
         options={{
           // Remove checkboxes
           selectableRows: "none",
+          // Remove extra feature icons
           download: false,
           print: false,
           viewColumns: false,
@@ -111,7 +113,12 @@ export default function Table(props: {
           customSearchRender: undefined,
           elevation: 0,
           rowsPerPageOptions: [10],
-          onRowClick: () => {},
+          onRowClick:
+            props.onClick != null
+              ? (rowVals) =>
+                  // @ts-ignore
+                  props.onClick(rowVals)
+              : undefined,
         }}
       />
     </MuiThemeProvider>
