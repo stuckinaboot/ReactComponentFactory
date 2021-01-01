@@ -3,8 +3,6 @@ import MUIDataTable from "mui-datatables";
 import { Typography } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
-const DEFAULT_BACKGROUND_COLOR = "white";
-
 export type Column = { name: string; label: string };
 
 export type Title = {
@@ -15,6 +13,7 @@ export type Title = {
 };
 
 const DEFAULT_BORDER_RADIUS = 5;
+const DEFAULT_BACKGROUND_COLOR = "white";
 
 export default function Table(props: {
   columns: Column[];
@@ -72,7 +71,7 @@ export default function Table(props: {
     });
 
   return (
-    <div style={{ display: "flex", height }}>
+    <div style={{ display: "flex", height, overflowY: "scroll" }}>
       <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
           title={

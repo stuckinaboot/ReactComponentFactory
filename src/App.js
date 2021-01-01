@@ -19,6 +19,7 @@ import Select from "./components/Select";
 import CustomAppBar from "./components/CustomAppBar";
 import Map from "./components/Map";
 import Table from "./components/Table";
+import DatePicker from "./components/DatePicker";
 
 const SHOW_MAP = true;
 
@@ -134,23 +135,19 @@ function App() {
         {
           name: "name",
           header: "Dessert (100g serving)",
-          cellProps: { style: { paddingRight: 0 } },
         },
         {
           name: "calories",
           header: "Calories",
-          cellProps: { align: "right" },
         },
-        { name: "fat", header: "Fat (g)", cellProps: { align: "right" } },
+        { name: "fat", header: "Fat (g)" },
         {
           name: "carbs",
           header: "Carbs (g)",
-          cellProps: { align: "right" },
         },
         {
           name: "protein",
           header: "Protein (g)",
-          cellProps: { align: "right" },
         },
       ]}
       data={[
@@ -249,6 +246,8 @@ function App() {
     />
   );
 
+  const datePicker = <DatePicker label="Foo" />;
+
   return (
     <div className="App">
       {appBar}
@@ -327,6 +326,9 @@ function App() {
         </Grid>
         <Grid item xs={12}>
           {chipInput}
+        </Grid>
+        <Grid item xs={4}>
+          {datePicker}
         </Grid>
       </Grid>
     </div>

@@ -71,7 +71,7 @@ export default function Table(props: {
     });
 
   return (
-    <div style={{ display: "flex", height }}>
+    <div style={{ display: "flex", height, overflowY: "scroll" }}>
       <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
           title={
