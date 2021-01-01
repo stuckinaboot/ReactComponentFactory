@@ -20,7 +20,7 @@ import CustomAppBar from "./components/CustomAppBar";
 import Map from "./components/Map";
 import Table from "./components/Table";
 
-const SHOW_MAP = false;
+const SHOW_MAP = true;
 
 function App() {
   const [mapCenter, setMapCenter] = React.useState({
@@ -261,9 +261,6 @@ function App() {
             <Grid item xs={4}>
               {titledCard}
             </Grid>
-            <Grid item xs={4}>
-              {chipInput}
-            </Grid>
             <Grid item xs={12}>
               <DropdownMenu
                 buttonContents={<SendIcon fontSize="small" />}
@@ -321,12 +318,15 @@ function App() {
           </>
         )}
         {SHOW_MAP && (
-          <Grid item xs={4} style={{ height: 500 }}>
+          <Grid item xs={12} style={{ height: 500 }}>
             {map}
           </Grid>
         )}
-        <Grid item xs={12} md={6} style={{ maxHeight: 400 }}>
+        <Grid item xs={12} md={12}>
           {table}
+        </Grid>
+        <Grid item xs={12}>
+          {chipInput}
         </Grid>
       </Grid>
     </div>
