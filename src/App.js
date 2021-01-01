@@ -126,6 +126,11 @@ function App() {
 
   const table = (
     <Table
+      title={{
+        label: "Racing Pigeons",
+        subtitleLabel: "fishing",
+        backgroundColor: "gray",
+      }}
       columns={[
         {
           name: "name",

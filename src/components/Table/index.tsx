@@ -34,8 +34,13 @@ export type Column = { name: string; label: string };
 
 export type Title = {
   label: string;
+  subtitleLabel?: string;
   fontSize?: number;
+  backgroundColor?: string;
+  textColor?: string;
 };
+
+const DEFAULT_BORDER_RADIUS = 5;
 
 export default function Table(props: {
   columns: Column[];
@@ -45,7 +50,9 @@ export default function Table(props: {
   data: any[];
   title?: Title;
   backgroundColor?: string;
+  borderRadius?: number;
 }): React.ReactElement {
+  const borderRadius = props.borderRadius || DEFAULT_BORDER_RADIUS;
   // Styling the grid
   // https://github.com/gregnb/mui-datatables/blob/master/examples/customize-styling/index.js
   const getMuiTheme = () =>
@@ -54,22 +61,40 @@ export default function Table(props: {
         // @ts-ignore
         MUIDataTable: {
           paper: {
+            borderRadius: 5,
             boxShadow: "none",
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
-            borderRadius: 0,
+          },
+        },
+        MUIDataTableToolbar: {
+          root: {
+            borderRadius: `${borderRadius}px ${borderRadius}px 0px 0px`,
+            backgroundColor: props.title?.backgroundColor,
+          },
+          icon: {
+            color: props.title?.textColor,
           },
         },
       },
     });
 
   return (
-    // Gets rid of the rounded corners by blending them in with this diff
     <MuiThemeProvider theme={getMuiTheme()}>
       <MUIDataTable
         title={
-          <Typography style={{ fontSize: props.title?.fontSize }}>
-            <b>{props.title?.label || ""}</b>
-          </Typography>
+          <div style={{ color: props.title?.textColor }}>
+            <Typography
+              variant="h6"
+              style={{ fontSize: props.title?.fontSize }}
+            >
+              {props.title?.label || ""}
+            </Typography>
+            {props.title?.subtitleLabel && (
+              <Typography variant="caption">
+                {props.title?.subtitleLabel}
+              </Typography>
+            )}
+          </div>
         }
         data={props.data}
         columns={props.columns}
