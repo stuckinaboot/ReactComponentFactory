@@ -3,7 +3,6 @@ import MUIDataTable from "mui-datatables";
 import ContainerDimensions from "react-container-dimensions";
 import { Typography } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import RawCard from "mui-raw-card";
 
 const DEFAULT_BACKGROUND_COLOR = "white";
 

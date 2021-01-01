@@ -38,7 +38,6 @@
     "@material-ui/icons": "^4.11.2",
     "@types/mui-datatables": "^3.7.0",
     "mui-datatables": "^3.7.3",
-    "mui-raw-card": "^1.0.8",
     "react-container-dimensions": "^1.4.1"
   }
 }
