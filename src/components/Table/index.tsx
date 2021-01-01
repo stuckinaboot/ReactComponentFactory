@@ -1,40 +1,15 @@
 import * as React from "react";
 import MUIDataTable from "mui-datatables";
+import ContainerDimensions from "react-container-dimensions";
 import { Typography } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 const DEFAULT_BACKGROUND_COLOR = "white";
 
-const columns = [
-  {
-    name: "name",
-    label: "Name",
-  },
-  {
-    name: "company",
-    label: "Company",
-  },
-  {
-    name: "city",
-    label: "City",
-  },
-  {
-    name: "state",
-    label: "State",
-  },
-];
-
-const data = [
-  { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-  { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-  { name: "James Houston", company: "Test Corp", city: "Dallas", state: "TX" },
-];
-
 export type Column = { name: string; label: string };
 
 export type Title = {
   label: string;
-  subtitleLabel?: string;
   fontSize?: number;
   backgroundColor?: string;
   textColor?: string;
@@ -67,16 +42,17 @@ export default function Table(props: {
             boxShadow: "none",
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
           },
-          // Ensures the table will expand cleanly
+          // Ensures the table will expand cleanly (TODO doesn't do anything right now)
           // https://stackoverflow.com/questions/54651489/how-to-set-height-to-mui-datatable-with-responsive-scroll
           responsiveScroll: {
-            maxHeight: "300px",
+            maxHeight: "none",
           },
         },
         MUIDataTableToolbar: {
           root: {
             borderRadius: `${borderRadius}px ${borderRadius}px 0px 0px`,
             backgroundColor: props.title?.backgroundColor,
+            textAlign: "right",
           },
           icon: {
             color: props.title?.textColor,
@@ -98,58 +74,61 @@ export default function Table(props: {
     });
 
   return (
-    <MuiThemeProvider theme={getMuiTheme()}>
-      <MUIDataTable
-        title={
-          <div style={{ color: props.title?.textColor }}>
-            <Typography
-              variant="h6"
-              style={{ fontSize: props.title?.fontSize }}
-            >
-              {props.title?.label || ""}
-            </Typography>
-            {props.title?.subtitleLabel && (
-              <Typography variant="caption">
-                {props.title?.subtitleLabel}
-              </Typography>
-            )}
-          </div>
-        }
-        data={props.data}
-        columns={props.columns.map((col, idx) => ({
-          ...col,
-          options:
-            idx !== 0
-              ? {
-                  setCellProps: () => ({
-                    align: "center",
-                  }),
-                }
-              : undefined,
-        }))}
-        options={{
-          // Remove checkboxes
-          selectableRows: "none",
-          // Remove extra feature icons
-          download: false,
-          print: false,
-          viewColumns: false,
-          filter: false,
-          // Customize search textfield
-          // https://github.com/gregnb/mui-datatables/pull/771
-          customSearchRender: undefined,
-          elevation: 0,
-          rowsPerPageOptions: [10],
-          // Shows the cursor as "pointer"
-          selectableRowsOnClick: true,
-          onRowClick:
-            props.onClick != null
-              ? (rowVals) =>
-                  // @ts-ignore
-                  props.onClick(rowVals)
-              : undefined,
-        }}
-      />
-    </MuiThemeProvider>
+    <ContainerDimensions>
+      {({ height, width }) => (
+        <div style={{ height, width }}>
+          <MuiThemeProvider theme={getMuiTheme()}>
+            <MUIDataTable
+              title={
+                <div style={{ color: props.title?.textColor }}>
+                  <Typography
+                    variant="h6"
+                    style={{
+                      fontSize: props.title?.fontSize,
+                    }}
+                  >
+                    {props.title?.label || ""}
+                  </Typography>
+                </div>
+              }
+              data={props.data}
+              columns={props.columns.map((col, idx) => ({
+                ...col,
+                options:
+                  idx !== 0
+                    ? {
+                        setCellProps: () => ({
+                          align: "center",
+                        }),
+                      }
+                    : undefined,
+              }))}
+              options={{
+                // Remove checkboxes
+                selectableRows: "none",
+                // Remove extra feature icons
+                download: false,
+                print: false,
+                viewColumns: false,
+                filter: false,
+                // Customize search textfield
+                // https://github.com/gregnb/mui-datatables/pull/771
+                customSearchRender: undefined,
+                elevation: 0,
+                rowsPerPageOptions: [10],
+                // Shows the cursor as "pointer"
+                selectableRowsOnClick: true,
+                onRowClick:
+                  props.onClick != null
+                    ? (rowVals) =>
+                        // @ts-ignore
+                        props.onClick(rowVals)
+                    : undefined,
+              }}
+            />
+          </MuiThemeProvider>
+        </div>
+      )}
+    </ContainerDimensions>
   );
 }

@@ -128,7 +128,6 @@ function App() {
     <Table
       title={{
         label: "Racing Pigeons",
-        subtitleLabel: "fishing",
         backgroundColor: "gray",
       }}
       columns={[
@@ -326,7 +325,7 @@ function App() {
             {map}
           </Grid>
         )}
-        <Grid item xs={6} style={{ maxHeight: 200 }}>
+        <Grid item xs={6} style={{ minHeight: 600 }}>
           {table}
         </Grid>
       </Grid>
