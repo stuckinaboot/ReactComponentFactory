@@ -3,6 +3,7 @@ import MUIDataTable from "mui-datatables";
 import ContainerDimensions from "react-container-dimensions";
 import { Typography } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import RawCard from "mui-raw-card";
 
 const DEFAULT_BACKGROUND_COLOR = "white";
 
@@ -42,11 +43,6 @@ export default function Table(props: {
             boxShadow: "none",
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
           },
-          // Ensures the table will expand cleanly (TODO doesn't do anything right now)
-          // https://stackoverflow.com/questions/54651489/how-to-set-height-to-mui-datatable-with-responsive-scroll
-          responsiveScroll: {
-            maxHeight: "none",
-          },
         },
         MUIDataTableToolbar: {
           root: {
@@ -76,58 +72,58 @@ export default function Table(props: {
   return (
     <ContainerDimensions>
       {({ height, width }) => (
-        <div style={{ height, width }}>
-          <MuiThemeProvider theme={getMuiTheme()}>
-            <MUIDataTable
-              title={
-                <div style={{ color: props.title?.textColor }}>
-                  <Typography
-                    variant="h6"
-                    style={{
-                      fontSize: props.title?.fontSize,
-                    }}
-                  >
-                    {props.title?.label || ""}
-                  </Typography>
-                </div>
-              }
-              data={props.data}
-              columns={props.columns.map((col, idx) => ({
-                ...col,
-                options:
-                  idx !== 0
-                    ? {
-                        setCellProps: () => ({
-                          align: "center",
-                        }),
-                      }
-                    : undefined,
-              }))}
-              options={{
-                // Remove checkboxes
-                selectableRows: "none",
-                // Remove extra feature icons
-                download: false,
-                print: false,
-                viewColumns: false,
-                filter: false,
-                // Customize search textfield
-                // https://github.com/gregnb/mui-datatables/pull/771
-                customSearchRender: undefined,
-                elevation: 0,
-                rowsPerPageOptions: [10],
-                // Shows the cursor as "pointer"
-                selectableRowsOnClick: true,
-                onRowClick:
-                  props.onClick != null
-                    ? (rowVals) =>
-                        // @ts-ignore
-                        props.onClick(rowVals)
-                    : undefined,
-              }}
-            />
-          </MuiThemeProvider>
-        </div>
+        <MuiThemeProvider theme={getMuiTheme()}>
+          <MUIDataTable
+            title={
+              <div style={{ color: props.title?.textColor }}>
+                <Typography
+                  variant="h6"
+                  style={{
+                    fontSize: props.title?.fontSize,
+                  }}
+                >
+                  {props.title?.label || ""}
+                </Typography>
+              </div>
+            }
+            data={props.data}
+            columns={props.columns.map((col, idx) => ({
+              ...col,
+              options:
+                idx !== 0
+                  ? {
+                      setCellProps: () => ({
+                        align: "center",
+                      }),
+                    }
+                  : undefined,
+            }))}
+            options={{
+              // Remove checkboxes
+              selectableRows: "none",
+              // Remove extra feature icons
+              download: false,
+              print: false,
+              viewColumns: false,
+              filter: false,
+              // Customize search textfield
+              // https://github.com/gregnb/mui-datatables/pull/771
+              customSearchRender: undefined,
+              elevation: 0,
+              rowsPerPageOptions: [10],
+              // Shows the cursor as "pointer"
+              selectableRowsOnClick: true,
+              onRowClick:
+                props.onClick != null
+                  ? (rowVals) =>
+                      // @ts-ignore
+                      props.onClick(rowVals)
+                  : undefined,
+              responsive: "standard",
+              tableBodyHeight: height + "px",
+            }}
+          />
+        </MuiThemeProvider>
       )}
     </ContainerDimensions>
   );
