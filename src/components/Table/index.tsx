@@ -53,8 +53,9 @@ export default function Table(props: {
   borderRadius?: number;
 }): React.ReactElement {
   const borderRadius = props.borderRadius || DEFAULT_BORDER_RADIUS;
-  // Styling the grid
+  // Styling the table
   // https://github.com/gregnb/mui-datatables/blob/master/examples/customize-styling/index.js
+  // Styles are modelled off TitledCard (mui-titled-card on npm)
   const getMuiTheme = () =>
     createMuiTheme({
       overrides: {
