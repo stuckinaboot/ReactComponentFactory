@@ -27,6 +27,7 @@ export default function Table(props: {
   backgroundColor?: string;
   borderRadius?: number;
   onClick?: (rowValues: any[]) => any;
+  elevation?: number;
 }): React.ReactElement {
   const borderRadius = props.borderRadius || DEFAULT_BORDER_RADIUS;
   // Styling the table
@@ -39,7 +40,6 @@ export default function Table(props: {
         MUIDataTable: {
           paper: {
             borderRadius: 5,
-            boxShadow: "none",
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
           },
         },
@@ -108,7 +108,7 @@ export default function Table(props: {
               // Customize search textfield
               // https://github.com/gregnb/mui-datatables/pull/771
               customSearchRender: undefined,
-              elevation: 0,
+              elevation: props.elevation || 0,
               rowsPerPageOptions: [10],
               // Shows the cursor as "pointer"
               selectableRowsOnClick: true,
