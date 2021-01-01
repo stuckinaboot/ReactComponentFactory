@@ -77,6 +77,11 @@ export default function Table(props: {
             color: props.title?.textColor,
           },
         },
+        // Note: this will affect all MuiTableCell in the entire app,
+        // but that should be fine as we intend to provide consistent styling
+        MuiTableCell: {
+          head: { fontWeight: "bold" },
+        },
       },
     });
 
@@ -99,7 +104,17 @@ export default function Table(props: {
           </div>
         }
         data={props.data}
-        columns={props.columns}
+        columns={props.columns.map((col, idx) => ({
+          ...col,
+          options:
+            idx !== 0
+              ? {
+                  setCellProps: () => ({
+                    align: "center",
+                  }),
+                }
+              : undefined,
+        }))}
         options={{
           // Remove checkboxes
           selectableRows: "none",
