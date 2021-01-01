@@ -40,7 +40,7 @@ export default function Table(props: {
         // @ts-ignore
         MUIDataTable: {
           paper: {
-            borderRadius: 5,
+            borderRadius: borderRadius,
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
             width: "100%",
             overflowX: "hidden",
