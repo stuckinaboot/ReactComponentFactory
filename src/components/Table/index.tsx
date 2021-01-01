@@ -81,6 +81,9 @@ export default function Table(props: {
         // but that should be fine as we intend to provide consistent styling
         MuiTableCell: {
           head: { fontWeight: "bold" },
+          body: {
+            ":hover": { cursor: "pointer" },
+          },
         },
       },
     });
@@ -128,6 +131,8 @@ export default function Table(props: {
           customSearchRender: undefined,
           elevation: 0,
           rowsPerPageOptions: [10],
+          // Shows the cursor as "pointer"
+          selectableRowsOnClick: true,
           onRowClick:
             props.onClick != null
               ? (rowVals) =>
