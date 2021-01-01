@@ -67,6 +67,11 @@ export default function Table(props: {
             boxShadow: "none",
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
           },
+          // Ensures the table will expand cleanly
+          // https://stackoverflow.com/questions/54651489/how-to-set-height-to-mui-datatable-with-responsive-scroll
+          responsiveScroll: {
+            maxHeight: "300px",
+          },
         },
         MUIDataTableToolbar: {
           root: {
@@ -77,12 +82,16 @@ export default function Table(props: {
             color: props.title?.textColor,
           },
         },
-        // Note: this will affect all MuiTableCell in the entire app,
-        // but that should be fine as we intend to provide consistent styling
-        MuiTableCell: {
-          head: { fontWeight: "bold" },
-          body: {
-            ":hover": { cursor: "pointer" },
+        MUIDataTableHeadCell: {
+          root: {
+            fontWeight: "bold",
+            height: 5,
+          },
+        },
+        MUIDataTableBodyCell: {
+          root: {
+            paddingTop: 3,
+            paddingBottom: 3,
           },
         },
       },

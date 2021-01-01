@@ -326,7 +326,7 @@ function App() {
             {map}
           </Grid>
         )}
-        <Grid item xs={6} style={{ height: 200 }}>
+        <Grid item xs={6} style={{ maxHeight: 200 }}>
           {table}
         </Grid>
       </Grid>
