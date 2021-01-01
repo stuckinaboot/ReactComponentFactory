@@ -20,8 +20,9 @@ import CustomAppBar from "./components/CustomAppBar";
 import Map from "./components/Map";
 import Table from "./components/Table";
 import DatePicker from "./components/DatePicker";
+import SimpleToggle from "./components/SimpleToggle";
 
-const SHOW_MAP = true;
+const SHOW_MAP = false;
 
 function App() {
   const [mapCenter, setMapCenter] = React.useState({
@@ -248,6 +249,20 @@ function App() {
 
   const datePicker = <DatePicker label="Foo" />;
 
+  const toggle = (
+    <SimpleToggle
+      items={[
+        { color: "red", title: "foo", value: 1 },
+        { color: "blue", title: "bar", value: 2 },
+        { color: "green", title: "bar", value: 3 },
+      ]}
+      fontColor="black"
+      selectedFontColor="white"
+      onChange={() => {}}
+      disableAllCaps
+    />
+  );
+
   return (
     <div className="App">
       {appBar}
@@ -335,6 +350,9 @@ function App() {
           </Grid>
           <Grid item xs={4}>
             {datePicker}
+          </Grid>
+          <Grid item xs={4}>
+            {toggle}
           </Grid>
         </Grid>
         <Grid item xs={1} />
