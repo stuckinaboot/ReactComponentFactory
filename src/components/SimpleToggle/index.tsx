@@ -68,7 +68,7 @@ export default function Toggle<T>(props: {
             }}
             value={item.value}
           >
-            <div>{item.title}</div>
+            {item.title}
           </ToggleButton>
         ))}
       </ToggleButtonGroup>
