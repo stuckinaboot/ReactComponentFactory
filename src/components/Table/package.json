@@ -14,9 +14,13 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "react": "^17.0.1",
     "rollup": "^1.29.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "typescript": "^2.8.3"
@@ -30,6 +34,8 @@
     "npm"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "@types/mui-datatables": "^3.7.0",
     "mui-datatables": "^3.7.3"
   }

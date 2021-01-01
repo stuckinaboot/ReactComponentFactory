@@ -1,23 +1,23 @@
 import * as React from "react";
 import "./App.css";
-// import { Grid } from "@material-ui/core";
-// import ColorButton from "./components/MuiColorButton";
-// import RawCard from "./components/RawCard";
-// import TitledCard from "./components/TitledCard";
-// import SimpleDialog from "./components/SimpleDialog";
-// import CopyableText from "./components/CopyableText";
-// import SuggestableChipInput from "./components/SuggestableChipInput";
-// import DropdownMenu from "./components/DropdownMenu";
-// import { showAlert, AlertLocation } from "show-alert";
-// import { Button } from "@material-ui/core";
-// import StepDialog from "./components/StepDialog";
-// import SendIcon from "@material-ui/icons/Send";
-// import isMobile from "./components/CheckMobile";
-// import RawFileDialog from "./components/RawFileDialog";
-// import TextField from "./components/TextField";
-// import Select from "./components/Select";
-// import CustomAppBar from "./components/CustomAppBar";
-// import Map from "./components/Map";
+import { Grid } from "@material-ui/core";
+import ColorButton from "./components/MuiColorButton";
+import RawCard from "./components/RawCard";
+import TitledCard from "./components/TitledCard";
+import SimpleDialog from "./components/SimpleDialog";
+import CopyableText from "./components/CopyableText";
+import SuggestableChipInput from "./components/SuggestableChipInput";
+import DropdownMenu from "./components/DropdownMenu";
+import { showAlert, AlertLocation } from "show-alert";
+import { Button } from "@material-ui/core";
+import StepDialog from "./components/StepDialog";
+import SendIcon from "@material-ui/icons/Send";
+import isMobile from "./components/CheckMobile";
+import RawFileDialog from "./components/RawFileDialog";
+import TextField from "./components/TextField";
+import Select from "./components/Select";
+import CustomAppBar from "./components/CustomAppBar";
+import Map from "./components/Map";
 import Table from "./components/Table";
 
 const SHOW_MAP = false;
@@ -28,101 +28,101 @@ function App() {
     long: -74.0445,
   });
 
-  // const appBar = (
-  //   <CustomAppBar
-  //     navItems={[{ text: "potato", endpoint: "/foo" }]}
-  //     selectedNavItemText="potato"
-  //   />
-  // );
+  const appBar = (
+    <CustomAppBar
+      navItems={[{ text: "potato", endpoint: "/foo" }]}
+      selectedNavItemText="potato"
+    />
+  );
 
-  // const rawCard = (
-  //   <RawCard title="n">
-  //     <SimpleDialog
-  //       title="Testing"
-  //       description={
-  //         <>
-  //           <ColorButton
-  //             label={"Alert!"}
-  //             textColor={"white"}
-  //             backgroundColor={"red"}
-  //             onClick={() =>
-  //               showAlert("woah", {
-  //                 location: AlertLocation.TOP_RIGHT,
-  //                 title: "foo",
-  //               })
-  //             }
-  //           />
-  //           <CopyableText
-  //             textToCopy="Potatos"
-  //             onCopy={() => showAlert("Woohoo")}
-  //           />
-  //         </>
-  //       }
-  //     >
-  //       <ColorButton
-  //         label={"Woohoo!"}
-  //         textColor={"white"}
-  //         backgroundColor={"red"}
-  //       />
-  //     </SimpleDialog>
-  //   </RawCard>
-  // );
+  const rawCard = (
+    <RawCard title="n">
+      <SimpleDialog
+        title="Testing"
+        description={
+          <>
+            <ColorButton
+              label={"Alert!"}
+              textColor={"white"}
+              backgroundColor={"red"}
+              onClick={() =>
+                showAlert("woah", {
+                  location: AlertLocation.TOP_RIGHT,
+                  title: "foo",
+                })
+              }
+            />
+            <CopyableText
+              textToCopy="Potatos"
+              onCopy={() => showAlert("Woohoo")}
+            />
+          </>
+        }
+      >
+        <ColorButton
+          label={"Woohoo!"}
+          textColor={"white"}
+          backgroundColor={"red"}
+        />
+      </SimpleDialog>
+    </RawCard>
+  );
 
-  // const titledCard = <TitledCard titleBackgroundColor={"red"} title="foo" />;
+  const titledCard = <TitledCard titleBackgroundColor={"red"} title="foo" />;
 
-  // const chipInput = (
-  //   <SuggestableChipInput
-  //     onChipsChange={() => {}}
-  //     initialValue={[]}
-  //     textInputLabel="woah"
-  //     suggestions={["potato"]}
-  //     maxChips={3}
-  //   />
-  // );
+  const chipInput = (
+    <SuggestableChipInput
+      onChipsChange={() => {}}
+      initialValue={[]}
+      textInputLabel="woah"
+      suggestions={["potato"]}
+      maxChips={3}
+    />
+  );
 
-  // const map = (
-  //   <div style={{ width: "100%", height: "100%" }}>
-  //     <Button
-  //       onClick={() =>
-  //         setMapCenter({
-  //           lat: 41.034,
-  //           long: -73.7629,
-  //         })
-  //       }
-  //     >
-  //       White Plains
-  //     </Button>
-  //     <Button
-  //       onClick={() =>
-  //         setMapCenter({
-  //           lat: 40.6892,
-  //           long: -74.0445,
-  //         })
-  //       }
-  //     >
-  //       Statue of Liberty
-  //     </Button>
-  //     <div style={{ height: "100%", width: "100%" }}>
-  //       <Map
-  //         center={mapCenter}
-  //         markerItems={[
-  //           {
-  //             lat: 40.6892,
-  //             long: -74.0445,
-  //             popupContent: "Statue of Liberty",
-  //           },
-  //           {
-  //             lat: 40.7004,
-  //             long: -74.0542,
-  //             popupContent: "Liberty State Park",
-  //           },
-  //           { lat: 41.034, long: -73.7629, popupContent: "White plains" },
-  //         ]}
-  //         animateUpdateToView
-  //       />
-  //     </div>
-  //   </div>
-  // );
+  const map = (
+    <div style={{ width: "100%", height: "100%" }}>
+      <Button
+        onClick={() =>
+          setMapCenter({
+            lat: 41.034,
+            long: -73.7629,
+          })
+        }
+      >
+        White Plains
+      </Button>
+      <Button
+        onClick={() =>
+          setMapCenter({
+            lat: 40.6892,
+            long: -74.0445,
+          })
+        }
+      >
+        Statue of Liberty
+      </Button>
+      <div style={{ height: "100%", width: "100%" }}>
+        <Map
+          center={mapCenter}
+          markerItems={[
+            {
+              lat: 40.6892,
+              long: -74.0445,
+              popupContent: "Statue of Liberty",
+            },
+            {
+              lat: 40.7004,
+              long: -74.0542,
+              popupContent: "Liberty State Park",
+            },
+            { lat: 41.034, long: -73.7629, popupContent: "White plains" },
+          ]}
+          animateUpdateToView
+        />
+      </div>
+    </div>
+  );
 
   const table = (
     <Table
@@ -247,11 +247,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Grid item xs={4} style={{ height: 200 }}> */}
-      {table}
-      {/* </Grid> */}
-      {/* {appBar} */}
-      {/* <Grid container style={{ margin: 20 }}>
+      {appBar}
+      <Grid container style={{ margin: 20 }}>
         {!SHOW_MAP && (
           <>
             <Grid item xs={4}>
@@ -324,7 +321,10 @@ function App() {
             {map}
           </Grid>
         )}
-      </Grid> */}
+        <Grid item xs={6} style={{ height: 200 }}>
+          {table}
+        </Grid>
+      </Grid>
     </div>
   );
 }

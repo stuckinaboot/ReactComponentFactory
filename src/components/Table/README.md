@@ -29,3 +29,5 @@ Longer description
 ```
 
 ## Quick pointers
+
+- If there is an issue running `yarn start`, run `rm -rf node_modules/react` and `rm -rf node_modules/react-dom`
