@@ -159,8 +159,8 @@ function App() {
         }
         maxLogoWidth={120}
       />
-      <Grid container style={{ margin: 20 }}>
-        <Grid item xs={12} style={{ maxHeight: 500 }}>
+      <Grid container>
+        <Grid item xs={12} style={{ maxHeight: 500, width: "100%" }}>
           {table}
         </Grid>
         <Grid item xs={4}>

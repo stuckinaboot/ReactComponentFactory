@@ -43,12 +43,15 @@ export default function Table(props: {
             borderRadius: 5,
             backgroundColor: props.backgroundColor || DEFAULT_BACKGROUND_COLOR,
             width: "100%",
+            overflowX: "hidden",
           },
         },
         MUIDataTableToolbar: {
           root: {
             borderRadius: `${borderRadius}px ${borderRadius}px 0px 0px`,
             backgroundColor: props.title?.backgroundColor,
+            // TODO the alignment is wrong of the title, search icon,
+            // and search bar is wrong on mobile
             textAlign: "right",
           },
           icon: {
@@ -71,7 +74,12 @@ export default function Table(props: {
     });
 
   return (
-    <div style={{ display: "flex", height, overflowY: "scroll" }}>
+    <div
+      style={{
+        display: "flex",
+        height,
+      }}
+    >
       <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
           title={

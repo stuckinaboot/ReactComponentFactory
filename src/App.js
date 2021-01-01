@@ -251,85 +251,93 @@ function App() {
   return (
     <div className="App">
       {appBar}
-      <Grid container style={{ margin: 20 }}>
-        {!SHOW_MAP && (
-          <>
-            <Grid item xs={4}>
-              {rawCard}
+      <Grid container>
+        <Grid item xs={1} />
+        <Grid item xs={10}>
+          {!SHOW_MAP && (
+            <>
+              <Grid item xs={4}>
+                {rawCard}
+              </Grid>
+              <Grid item xs={4}>
+                {titledCard}
+              </Grid>
+              <Grid item xs={12}>
+                <DropdownMenu
+                  buttonContents={<SendIcon fontSize="small" />}
+                  menuItems={[
+                    {
+                      icon: <SendIcon fontSize="small" />,
+                      title: "normal",
+                    },
+                    {
+                      icon: <SendIcon fontSize="small" />,
+                      custom: <Button>potato</Button>,
+                    },
+                  ]}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <StepDialog
+                  title="Dialog title"
+                  confirmBtnTitle="Confirm"
+                  steps={[
+                    { stepName: "Foobar", stepContents: "woah" },
+                    { stepName: "Foobar", stepContents: "hi" },
+                  ]}
+                  handleNextBtnPressed={() => {}}
+                >
+                  woah
+                </StepDialog>
+              </Grid>
+              <Grid item xs={4} style={{ textAlign: "left" }}>
+                {isMobile() ? "mobile" : "not mobile"}
+              </Grid>
+              <Grid item xs={4}>
+                <RawFileDialog
+                  title="Raw File"
+                  endpoint="https://www.w3.org/TR/PNG/iso_8859-1.txt"
+                >
+                  Click to show raw file
+                </RawFileDialog>
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  label="Foobar"
+                  onValueChange={() => {}}
+                  helperText="foobar"
+                  placeholder="foo tacoo"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <Select
+                  items={[{ text: "foo", value: 1 }]}
+                  label="Country"
+                  onValueChange={() => console.log("foobar")}
+                />
+              </Grid>
+            </>
+          )}
+          {SHOW_MAP && (
+            <Grid
+              item
+              xs={12}
+              style={{ height: 500, margin: 0, overflow: "hidden" }}
+            >
+              {map}
             </Grid>
-            <Grid item xs={4}>
-              {titledCard}
-            </Grid>
-            <Grid item xs={12}>
-              <DropdownMenu
-                buttonContents={<SendIcon fontSize="small" />}
-                menuItems={[
-                  {
-                    icon: <SendIcon fontSize="small" />,
-                    title: "normal",
-                  },
-                  {
-                    icon: <SendIcon fontSize="small" />,
-                    custom: <Button>potato</Button>,
-                  },
-                ]}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <StepDialog
-                title="Dialog title"
-                confirmBtnTitle="Confirm"
-                steps={[
-                  { stepName: "Foobar", stepContents: "woah" },
-                  { stepName: "Foobar", stepContents: "hi" },
-                ]}
-                handleNextBtnPressed={() => {}}
-              >
-                woah
-              </StepDialog>
-            </Grid>
-            <Grid item xs={4} style={{ textAlign: "left" }}>
-              {isMobile() ? "mobile" : "not mobile"}
-            </Grid>
-            <Grid item xs={4}>
-              <RawFileDialog
-                title="Raw File"
-                endpoint="https://www.w3.org/TR/PNG/iso_8859-1.txt"
-              >
-                Click to show raw file
-              </RawFileDialog>
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                label="Foobar"
-                onValueChange={() => {}}
-                helperText="foobar"
-                placeholder="foo tacoo"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <Select
-                items={[{ text: "foo", value: 1 }]}
-                label="Country"
-                onValueChange={() => console.log("foobar")}
-              />
-            </Grid>
-          </>
-        )}
-        {SHOW_MAP && (
-          <Grid item xs={12} style={{ height: 500 }}>
-            {map}
+          )}
+          <Grid item xs={12} md={12}>
+            {table}
           </Grid>
-        )}
-        <Grid item xs={12} md={12}>
-          {table}
+          <Grid item xs={12}>
+            {chipInput}
+          </Grid>
+          <Grid item xs={4}>
+            {datePicker}
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          {chipInput}
-        </Grid>
-        <Grid item xs={4}>
-          {datePicker}
-        </Grid>
+        <Grid item xs={1} />
       </Grid>
     </div>
   );
