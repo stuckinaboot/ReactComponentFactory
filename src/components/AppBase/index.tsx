@@ -7,6 +7,7 @@ import { AuthConsumer, AuthProvider } from "react-check-auth";
 export type Auth = {
   isAuthenticated: (userInfo: any) => boolean;
   authUrl: string;
+  authRouter: (userInfo: any) => React.ReactElement;
   onAuthLoadingRouter?: React.ReactElement;
 };
 
@@ -27,12 +28,13 @@ const ConditionalWrapper = ({
 }) => (condition ? wrapper(children) : children) as React.ReactElement<any>;
 
 export default function AppBase(props: {
-  authRouter?: React.ReactElement;
   nonAuthRouter?: React.ReactElement;
   allRouter?: React.ReactElement;
   auth?: Auth;
   disableRootSwitch?: boolean;
 }) {
+  const useSwitch = !props.disableRootSwitch;
+
   if (props.auth != null) {
     return (
       <AuthProvider authUrl={props.auth.authUrl}>
@@ -40,12 +42,12 @@ export default function AppBase(props: {
           <AuthConsumer>
             {({ userInfo, isLoading }: AuthConsumerParams) => (
               <ConditionalWrapper
-                condition={!props.disableRootSwitch}
+                condition={useSwitch}
                 wrapper={(children) => <Switch>{children}</Switch>}
               >
                 {props.allRouter}
                 {props.auth.isAuthenticated(userInfo) && !isLoading
-                  ? props.authRouter
+                  ? props.auth.authRouter(userInfo)
                   : !isLoading
                   ? props.nonAuthRouter
                   : // Show this when auth is loading
@@ -61,7 +63,7 @@ export default function AppBase(props: {
   return (
     <Router>
       <ConditionalWrapper
-        condition={!props.disableRootSwitch}
+        condition={useSwitch}
         wrapper={(children) => <Switch>{children}</Switch>}
       >
         {props.nonAuthRouter}

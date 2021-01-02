@@ -1,6 +1,6 @@
-# Module Name
+# App Router Base
 
-Short description
+React router base for a React app that provides convenient authentication and routing wrappers
 
 ## Overview
 
