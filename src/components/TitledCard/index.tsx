@@ -4,6 +4,8 @@ import RawCard from "mui-raw-card";
 
 const GRAY = "#D8D8D8";
 
+const DEFAULT_ELEVATION = 0;
+
 export default function TitledCard(props: {
   titleBackgroundColor: string;
   title: string;
@@ -41,7 +43,7 @@ export default function TitledCard(props: {
       style={{ backgroundColor: GRAY, ...(style != null ? style : {}) }}
       // Use conditional to ensure that even if elevation is defined to
       // be 0, elevation will be used instead of the default value
-      elevation={elevation != null ? elevation : 10}
+      elevation={elevation != null ? elevation : DEFAULT_ELEVATION}
     >
       <div style={innerCardStyle}>{children}</div>
     </RawCard>
