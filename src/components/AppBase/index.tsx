@@ -28,9 +28,14 @@ const ConditionalWrapper = ({
 }) => (condition ? wrapper(children) : children) as React.ReactElement<any>;
 
 export default function AppBase(props: {
+  // This router is only present if user is not yet authorized
+  // Ex. landing pages
   nonAuthRouter?: React.ReactElement;
+  // This router is always present
   allRouter?: React.ReactElement;
   auth?: Auth;
+  // Disables the default React router Switch
+  // https://reactrouter.com/web/api/Switch
   disableRootSwitch?: boolean;
 }) {
   const useSwitch = !props.disableRootSwitch;
