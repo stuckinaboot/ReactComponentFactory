@@ -21,6 +21,7 @@ import Map from "./components/Map";
 import Table from "./components/Table";
 import DatePicker from "./components/DatePicker";
 import SimpleToggle from "./components/SimpleToggle";
+import RadioGroup from "./components/RadioGroup";
 
 const SHOW_MAP = false;
 
@@ -264,6 +265,16 @@ function App() {
     />
   );
 
+  const radioGroup = (
+    <RadioGroup
+      label="Foobar"
+      items={[
+        { title: "foo", value: "1" },
+        { title: "woo", value: "2" },
+      ]}
+    />
+  );
+
   return (
     <div className="App">
       {appBar}
@@ -294,6 +305,9 @@ function App() {
                 />
               </Grid>
               <Grid item xs={12}>
+                <Grid item xs={4}>
+                  {radioGroup}
+                </Grid>
                 <StepDialog
                   title="Dialog title"
                   confirmBtnTitle="Confirm"
