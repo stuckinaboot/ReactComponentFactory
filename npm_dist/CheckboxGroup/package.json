@@ -1,6 +1,6 @@
 {
   "name": "mui-checkboxes",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "",
   "author": "",
   "license": "",
@@ -32,5 +32,8 @@
     "react",
     "typescript",
     "npm"
-  ]
+  ],
+  "dependencies": {
+    "@material-ui/core": "^4.11.2"
+  }
 }

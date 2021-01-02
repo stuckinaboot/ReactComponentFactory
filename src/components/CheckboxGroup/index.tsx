@@ -13,7 +13,7 @@ const DEFAULT_CHECKBOX_COLOR = "black";
 
 export default function CheckboxGroup(props: {
   items: CheckboxItem[];
-  onChange?: (values: { [checkboxId: string]: string }) => any;
+  onChange?: (values: { [checkboxId: string]: boolean }) => any;
   label?: string;
   checkboxColor?: string;
 }): React.ReactElement {
@@ -51,7 +51,7 @@ export default function CheckboxGroup(props: {
                     [item.id]: event.target?.checked,
                   }))
                 }
-                style={{ color: props.checkboxColor }}
+                style={{ color: props.checkboxColor || DEFAULT_CHECKBOX_COLOR }}
               />
             }
             label={item.label}
