@@ -323,6 +323,7 @@ function App() {
                   onValueChange={() => {}}
                   helperText="foobar"
                   placeholder="foo tacoo"
+                  date
                 />
               </Grid>
               <Grid item xs={6}>

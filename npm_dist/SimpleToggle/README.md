@@ -1,6 +1,6 @@
-# Mui Date Picker
+# Module Name
 
-Note: this module is no longer being supported. Use npm module `mui-text-field` with parameter `date` instead.
+Short description
 
 ## Overview
 

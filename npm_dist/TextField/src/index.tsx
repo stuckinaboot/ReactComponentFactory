@@ -10,6 +10,7 @@ export default function CustomTextField({
   password,
   maxCharacters,
   multiline,
+  date,
 }: {
   onValueChange: (updatedValue: string) => any;
   initialValue?: string;
@@ -17,6 +18,7 @@ export default function CustomTextField({
   password?: boolean;
   maxCharacters?: number;
   multiline?: boolean;
+  date?: boolean;
 }): React.ReactElement {
   const [value, setValue] = React.useState("");
   const [helperText, setHelperText] = React.useState("");
@@ -56,6 +58,7 @@ export default function CustomTextField({
         InputLabelProps={{ shrink: true }}
         helperText={helperText}
         multiline={multiline}
+        {...(date ? { type: "date" } : {})}
         {...(password ? { password: true } : {})}
       />
     </>
