@@ -22,6 +22,7 @@ import Table from "./components/Table";
 import DatePicker from "./components/DatePicker";
 import SimpleToggle from "./components/SimpleToggle";
 import RadioGroup from "./components/RadioGroup";
+import CheckboxGroup from "./components/CheckboxGroup";
 
 const SHOW_MAP = false;
 
@@ -276,6 +277,18 @@ function App() {
     />
   );
 
+  const checkboxes = (
+    <CheckboxGroup
+      label="Foobar"
+      items={[
+        { label: "foo", value: "1", id: "a" },
+        { label: "woo", value: "2", id: "b" },
+      ]}
+      onChange={(val) => console.log(val)}
+      checkboxColor="black"
+    />
+  );
+
   return (
     <div className="App">
       {appBar}
@@ -308,6 +321,9 @@ function App() {
               <Grid item xs={12}>
                 <Grid item xs={4}>
                   {radioGroup}
+                </Grid>
+                <Grid item xs={4}>
+                  {checkboxes}
                 </Grid>
                 <StepDialog
                   title="Dialog title"
