@@ -23,6 +23,7 @@ import DatePicker from "./components/DatePicker";
 import SimpleToggle from "./components/SimpleToggle";
 import RadioGroup from "./components/RadioGroup";
 import CheckboxGroup from "./components/CheckboxGroup";
+import SearchBar from "./components/SearchBar";
 
 const SHOW_MAP = false;
 
@@ -31,6 +32,8 @@ function App() {
     lat: 40.6892,
     long: -74.0445,
   });
+
+  const search = <SearchBar onValueChange={() => {}} transparent border />;
 
   const appBar = (
     <CustomAppBar
@@ -386,6 +389,9 @@ function App() {
           </Grid>
           <Grid item xs={4}>
             {toggle}
+          </Grid>
+          <Grid item xs={4}>
+            {search}
           </Grid>
         </Grid>
         <Grid item xs={1} />
