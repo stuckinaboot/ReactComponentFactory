@@ -19,6 +19,7 @@ import CustomAppBar from "mui-app-bar";
 import Map from "simple-geo-map";
 import Table from "mui-simple-table";
 import RadioGroup from "mui-radio-group";
+import SearchBar from "mui-searchbar";
 
 function App() {
   const table = (
@@ -158,7 +159,7 @@ function App() {
         logoImg={
           "https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
         }
-        maxLogoWidth={120}
+        maxLogoWidth={80}
       />
       <Grid container>
         <Grid item xs={4}>
@@ -170,6 +171,9 @@ function App() {
             ]}
             onChange={(val) => console.log(val)}
           />
+        </Grid>
+        <Grid item xs={4}>
+          <SearchBar placeholder="Foobar" onValueChange={() => {}} border />
         </Grid>
         <Grid item xs={12} style={{ maxHeight: 500, width: "100%" }}>
           {table}
