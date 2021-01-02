@@ -34,6 +34,7 @@ function App() {
     <CustomAppBar
       navItems={[{ text: "potato", endpoint: "/foo" }]}
       selectedNavItemText="potato"
+      backgroundColor="red"
     />
   );
 

@@ -13,6 +13,7 @@ const LIGHT_GREEN = "#2fc96c";
 
 export default function CustomAppBar(props: {
   navItems: NavItem[];
+  backgroundColor?: string;
   selectedNavItemText?: string;
   logoImg?: string;
   maxLogoWidth?: number;
@@ -25,7 +26,7 @@ export default function CustomAppBar(props: {
         (since fixed position does not impact size of UI) 
         https://material-ui.com/components/app-bar/ */}
       <AppBar position="fixed">
-        <Toolbar>
+        <Toolbar style={{ backgroundColor: props.backgroundColor }}>
           <Grid container>
             <Grid container item xs={12} alignItems="center">
               {props.logoImg != null && (
