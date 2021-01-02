@@ -18,6 +18,7 @@ import Select from "mui-select";
 import CustomAppBar from "mui-app-bar";
 import Map from "simple-geo-map";
 import Table from "mui-simple-table";
+import RadioGroup from "mui-radio-group";
 
 function App() {
   const table = (
@@ -160,6 +161,16 @@ function App() {
         maxLogoWidth={120}
       />
       <Grid container>
+        <Grid item xs={4}>
+          <RadioGroup
+            label="Foobar"
+            items={[
+              { title: "foo", value: "1" },
+              { title: "woo", value: "2" },
+            ]}
+            onChange={(val) => console.log(val)}
+          />
+        </Grid>
         <Grid item xs={12} style={{ maxHeight: 500, width: "100%" }}>
           {table}
         </Grid>

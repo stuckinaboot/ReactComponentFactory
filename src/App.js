@@ -272,6 +272,7 @@ function App() {
         { title: "foo", value: "1" },
         { title: "woo", value: "2" },
       ]}
+      onChange={(val) => console.log(val)}
     />
   );
 
