@@ -28,7 +28,7 @@ export default function CheckboxGroup(props: {
     // Note: this effect will be called on component load as well,
     // which we consider fine (for now at least. This is subject to change)
     props.onChange(values);
-  }, []);
+  }, [values]);
 
   return (
     <FormControl component="fieldset">
