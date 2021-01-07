@@ -24,6 +24,7 @@ import SimpleToggle from "./components/SimpleToggle";
 import RadioGroup from "./components/RadioGroup";
 import CheckboxGroup from "./components/CheckboxGroup";
 import SearchBar from "./components/SearchBar";
+import NotFound from "./components/NotFound";
 
 const SHOW_MAP = false;
 
@@ -298,6 +299,24 @@ function App() {
       <Grid container>
         <Grid item xs={1} />
         <Grid item xs={10}>
+          <Grid item xs={12}>
+            <NotFound
+              headerText="Page not found"
+              bodyText="Potato"
+              image={{
+                width: 100,
+                src:
+                  "https://i2.wp.com/www.silocreativo.com/en/wp-content/uploads/2017/11/ejemplo-pagina-error-404-creativo.png",
+              }}
+              extraBodyComponent={
+                <ColorButton
+                  textColor={"white"}
+                  backgroundColor={"red"}
+                  label="Go back"
+                />
+              }
+            />
+          </Grid>
           {!SHOW_MAP && (
             <>
               <Grid item xs={4}>
@@ -336,6 +355,8 @@ function App() {
                     { stepName: "Foobar", stepContents: "hi" },
                   ]}
                   handleNextBtnPressed={() => {}}
+                  nextBtnColor={"orange"}
+                  confirmBtnColor={"red"}
                 >
                   woah
                 </StepDialog>

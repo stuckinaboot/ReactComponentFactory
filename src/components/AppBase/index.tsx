@@ -51,12 +51,12 @@ export default function AppBase(props: {
                 wrapper={(children) => <Switch>{children}</Switch>}
               >
                 {props.allRouter}
-                {props.auth.isAuthenticated(userInfo) && !isLoading
+                {props.auth?.isAuthenticated(userInfo) && !isLoading
                   ? props.auth.authRouter(userInfo)
                   : !isLoading
                   ? props.nonAuthRouter
                   : // Show this when auth is loading
-                    props.auth.onAuthLoadingRouter || <></>}
+                    props.auth?.onAuthLoadingRouter || <></>}
               </ConditionalWrapper>
             )}
           </AuthConsumer>

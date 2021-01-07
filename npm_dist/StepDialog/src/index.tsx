@@ -12,6 +12,8 @@ import ColorButton from "mui-color-button";
 
 type StepItem = { stepName: string; stepContents: React.ReactNode };
 
+const CLOSE_RESET_ACTIVE_TIMEOUT = 200;
+
 export default function StepDialog(props: {
   children: React.ReactNode;
   title: string;
@@ -22,6 +24,8 @@ export default function StepDialog(props: {
   onConfirm?: () => any;
   disableBackdropClick?: boolean;
   nextBtnColor?: string;
+  confirmBtnColor?: string;
+  hideStepper?: boolean;
 }) {
   const [error, setError] = React.useState("");
   const [activeStep, setActiveStep] = React.useState(0);
@@ -46,6 +50,7 @@ export default function StepDialog(props: {
 
   const handleClose = () => {
     setOpen(false);
+    setTimeout(() => setActiveStep(0), CLOSE_RESET_ACTIVE_TIMEOUT);
     if (props.onClose == null) {
       return;
     }
@@ -78,16 +83,18 @@ export default function StepDialog(props: {
         }}
       >
         <DialogTitle>{props.title}</DialogTitle>
-        <Stepper
-          activeStep={activeStep}
-          style={{ paddingTop: 0, paddingBottom: 0 }}
-        >
-          {props.steps.map(({ stepName }) => (
-            <Step key={stepName}>
-              <StepLabel>{stepName}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
+        {!props.hideStepper && (
+          <Stepper
+            activeStep={activeStep}
+            style={{ paddingTop: 0, paddingBottom: 0 }}
+          >
+            {props.steps.map(({ stepName }) => (
+              <Step key={stepName}>
+                <StepLabel>{stepName}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        )}
         {/* Display error if one occurred */}
         {error.length > 0 && (
           <Typography style={{ color: "red", textAlign: "center" }}>
@@ -123,7 +130,12 @@ export default function StepDialog(props: {
                       : "Next"
                   }
                   textColor="white"
-                  backgroundColor={props.nextBtnColor || "#3f51b5"}
+                  backgroundColor={
+                    activeStep === props.steps.length - 1 &&
+                    props.confirmBtnColor
+                      ? props.confirmBtnColor
+                      : props.nextBtnColor || "#3f51b5"
+                  }
                   onClick={handleNextButtonPressed}
                 />
               </Grid>
